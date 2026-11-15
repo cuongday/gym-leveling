@@ -18,6 +18,7 @@
 - Lỗi API trả về RFC 7807 Problem Details (`application/problem+json`).
 - Song ngữ: chỉ hỗ trợ `vi` và `en`. Locale không hỗ trợ hoặc không có → `en`. `vi-VN` → `vi`.
 - Cấu hình nhạy cảm (mật khẩu DB, secret) lấy từ biến môi trường; repo chỉ chứa `.env.example`.
+- Màu, chữ, khoảng cách, bo góc của app lấy từ `design/DESIGN.md` (nguồn: `design/gym-leveling.pen`); không tự chế giá trị.
 - Mọi con số nghiệp vụ (ngưỡng rank, RP…) để ở cấu hình/DB — không áp dụng ở giai đoạn này nhưng không hard-code khi thêm.
 
 ## Review Focus
@@ -226,7 +227,7 @@ git commit -m "feat(backend): add vi/en locale resolution, problem details, ping
 
 ```bash
 flutter create --org com.gymleveling --project-name gym_leveling --platforms android,ios mobile
-cd mobile && flutter pub add flutter_riverpod dio go_router intl \
+cd mobile && flutter pub add flutter_riverpod dio go_router intl google_fonts \
   && flutter pub add flutter_localizations --sdk=flutter \
   && flutter pub add --dev http_mock_adapter
 ```
@@ -235,7 +236,7 @@ Bật `generate: true` trong `pubspec.yaml`; `l10n.yaml`: `arb-dir: lib/core/l10
 
 - [ ] **Step 2: Implement khung**
 
-ARB: `appTitle` = "Gym Leveling" (cả hai); `retry` = "Retry" / "Thử lại"; `errorGeneric` = "Can't connect to server" / "Không kết nối được máy chủ". `GymLevelingApp`: `MaterialApp.router` với `supportedLocales: [Locale('en'), Locale('vi')]`, `locale: locale`, `localeResolutionCallback` trả `vi` nếu `languageCode == 'vi'`, còn lại `en`. `router.dart`: go_router với `/` → `HomeScreen`. `theme.dart`: `ThemeData` Material 3, light + dark. `HomeScreen` tạm hiện `appTitle` ở AppBar (nội dung thật thêm ở Task 5).
+ARB: `appTitle` = "Gym Leveling" (cả hai); `retry` = "Retry" / "Thử lại"; `errorGeneric` = "Can't connect to server" / "Không kết nối được máy chủ". `GymLevelingApp`: `MaterialApp.router` với `supportedLocales: [Locale('en'), Locale('vi')]`, `locale: locale`, `localeResolutionCallback` trả `vi` nếu `languageCode == 'vi'`, còn lại `en`. `router.dart`: go_router với `/` → `HomeScreen`. `theme.dart`: `ThemeData` Material 3, light + dark, **giá trị lấy đúng từ `design/DESIGN.md`**: `ColorScheme` sáng/tối (primary `#FFA21F`/`#FFAA2C`, onPrimary `#1E1406`, surface `#FFFFFF`/`#181613`, scaffold bg `#FAF6EF`/`#0E0D0B`, error = token `danger`) + `ThemeExtension<GymColors>` chứa toàn bộ token còn lại (`surface2`, `border`, `textSecondary`, `textMuted`, `primaryText`, `primarySoft`, `accent`, `accentSoft`, `success`, `warning`, `info`, 7 màu rank) + hằng số `Gap` (4/8/12/16/24/32) và `Radii` (8/12/20/999). Font: Chakra Petch (display/heading) và Be Vietnam Pro (body) qua `google_fonts`. Test `test/core/theme_test.dart`: `lightTheme.colorScheme.primary == Color(0xFFFFA21F)`, `darkTheme.scaffoldBackgroundColor == Color(0xFF0E0D0B)`, `lightTheme.extension<GymColors>()!.rankMaster == Color(0xFF8A35D0)`. `HomeScreen` tạm hiện `appTitle` ở AppBar (nội dung thật thêm ở Task 5).
 
 - [ ] **Step 3: Kiểm tra**
 

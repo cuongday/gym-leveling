@@ -145,4 +145,36 @@ class AuthControllerTest {
 		}
 	}
 
+	@Test
+	void register_passwordOver72Bytes_returns400() throws Exception {
+		register("a@b.com", "ệ".repeat(30), "Alice", "en").andExpect(status().isBadRequest())
+			.andExpect(jsonPath("$.code").value("validation.failed"))
+			.andExpect(jsonPath("$.errors[*].field").value(hasItems("password")));
+	}
+
+	@Test
+	void register_displayNameTrimmed() throws Exception {
+		register("a@b.com", "password1", "  Cường  ", "en").andExpect(status().isCreated())
+			.andExpect(jsonPath("$.user.displayName").value("Cường"));
+	}
+
+	@Test
+	void login_unknownEmailFailuresCountTowardLimit() throws Exception {
+		for (int i = 0; i < 5; i++) {
+			login("nobody@b.com", "badpassword").andExpect(status().isUnauthorized());
+		}
+		login("nobody@b.com", "badpassword").andExpect(status().isTooManyRequests())
+			.andExpect(jsonPath("$.code").value("auth.too_many_attempts"));
+	}
+
+	@Test
+	void login_mixedCaseFailuresShareCounter() throws Exception {
+		register("a@b.com", "password1", "Alice", "en").andExpect(status().isCreated());
+		for (int i = 0; i < 5; i++) {
+			login(i % 2 == 0 ? "A@B.com" : "a@b.com", "badpassword").andExpect(status().isUnauthorized());
+		}
+		login("a@b.com", "password1").andExpect(status().isTooManyRequests())
+			.andExpect(jsonPath("$.code").value("auth.too_many_attempts"));
+	}
+
 }

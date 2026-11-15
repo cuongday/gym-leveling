@@ -26,13 +26,14 @@ class AuthController {
 
 	record RegisterRequest(
 			@NotBlank @Email @Size(max = 254) String email,
-			@NotBlank @Size(min = 8, max = 72) String password,
+			@NotBlank @Size(min = 8, max = 72) @MaxBytes(72) String password,
 			@NotBlank @Size(max = 40) String displayName,
 			@NotBlank @Pattern(regexp = "vi|en") String locale,
 			String timezone) {
 
 		RegisterRequest {
 			email = email == null ? null : email.trim();
+			displayName = displayName == null ? null : displayName.trim();
 		}
 
 	}
@@ -66,6 +67,8 @@ class AuthController {
 	@PostMapping("/register")
 	@ResponseStatus(HttpStatus.CREATED)
 	TokenResponse register(@Valid @RequestBody RegisterRequest req) {
+		// The user is committed before the refresh token is issued (deliberately non-transactional so the
+		// duplicate-email race stays 409); if issuing fails the user can simply log in.
 		UserProfile profile = userService.register(req.email(), passwordEncoder.encode(req.password()),
 				req.displayName(), req.locale(), req.timezone());
 		return tokens(profile);

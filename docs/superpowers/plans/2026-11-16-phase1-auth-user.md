@@ -294,3 +294,28 @@ README.md                                            (thêm bước JWT_SECRET)
 - [ ] **Step 4: `./gradlew test` pass, `ModularityTests` pass** (auth chỉ dùng `user.UserService`/`UserProfile`/`UserAccount`; user không phụ thuộc auth).
 - [ ] **Step 5: Kiểm tra tay** với Docker Compose đang chạy và `.env` có `JWT_SECRET`: `./gradlew bootRun`; `curl -X POST localhost:8080/api/v1/auth/register -H 'Content-Type: application/json' -H 'Accept-Language: vi' -d '{"email":"test@example.com","password":"12345678","displayName":"Test","locale":"vi"}'` → 201; `curl localhost:8080/api/v1/me -H "Authorization: Bearer <accessToken>"` → 200. Không có `JWT_SECRET` → app dừng ngay khi khởi động với lỗi rõ ràng.
 - [ ] **Step 6: Commit** `feat(user): add pause mode with monthly limit`
+
+---
+
+## Kết quả thực thi & việc chuyển tiếp
+
+Hoàn thành trên nhánh `phase1-auth-user` (74 test backend pass). Quyết định khác plan:
+
+- **Khoảng ân hạn 10 giây khi dùng lại refresh token:** dùng lại trong vòng 10 giây → chỉ trả 401, không thu hồi các phiên khác; sau 10 giây → thu hồi mọi phiên như spec. Lý do: app hay gọi refresh 2 lần liền / gửi lại khi mạng chập chờn, nếu không sẽ bị đăng xuất khắp nơi. Hạn chế đã biết: kẻ trộm token dùng lại trong 10 giây đầu không bị phát hiện.
+- **Header Bearer bị bỏ qua trên `/api/v1/auth/**`, `/api/v1/ping`, `/actuator/health`** để refresh vẫn chạy khi app gửi kèm access token đã hết hạn.
+- **Bộ đếm đăng nhập sai tính mọi lần thử, trước khi kiểm mật khẩu** (chặn gửi song song); 429 có header `Retry-After`. Cửa sổ 15 phút tính từ lần thử đầu tiên.
+- **Mã lỗi thêm:** `internal.error` (500), `not_found` (404), `request.invalid` (405/415…), `user.not_found`. `validation.failed` luôn có mảng `errors`.
+- **Mật khẩu giới hạn 72 byte UTF-8** (không chỉ 72 ký tự) vì BCrypt; tên hiển thị tự trim. Múi giờ dạng offset (`UTC+07:00`, `GMT+7`) bị từ chối.
+- Request không có token tới route không tồn tại → 401 (bảo mật chạy trước định tuyến).
+
+**Bắt buộc cho plan mobile (Onboarding/đăng nhập):**
+- Refresh phải **single-flight** (chỉ 1 refresh chạy cùng lúc, các request khác chờ kết quả).
+- Khi nhận `auth.invalid_refresh_token`: đọc lại token đang lưu trước khi đăng xuất (có thể request khác vừa xoay token).
+- Hiển thị thông báo theo `code`; 429 dùng `Retry-After`.
+
+**Hoãn lại (ghi nhận từ review):**
+- Giới hạn tần suất cho register/refresh; job dọn `refresh_tokens` cũ; khoá theo IP (hiện ai cũng có thể khoá email người khác 15 phút).
+- `daysUsedThisMonth` chỉ theo tháng hiện tại — cân nhắc trả theo từng tháng mà kỳ nghỉ chạm vào.
+- Cho phép thay múi giờ đang chờ hiệu lực mà không tính thêm lượt (UX).
+- Gộp cấu hình test (5 Spring context ≈ 5 phút chạy) thành một base chung.
+- `PauseService.isPaused` dạng batch cho job streak; handler 403 problem+json khi có phân quyền theo role.

@@ -1,0 +1,43 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: home_dumbbell_full_body_3x_intermediate
+name: { vi: "Toàn thân với tạ đơn – 3 buổi", en: "Dumbbell full body – 3 days" }
+summary: { vi: "3 buổi/tuần, mỗi buổi đủ đẩy – kéo – chân – bụng, tăng tạ từ từ.", en: "3 days a week, each with push, pull, legs and core; add weight gradually." }
+goals: [muscle_gain, fitness, maintain]
+level: intermediate
+location: home_dumbbell
+sessions_per_week: 3
+session_minutes: 45
+split: full_body
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: goblet_squat, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: floor_press_dumbbell, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: bent_over_row_dumbbell, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: rdl_dumbbell, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: plank, sets: 3, duration_sec: 30, rest_sec: 45 }
+  - code: B
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: split_squat_dumbbell, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: shoulder_press_dumbbell, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: one_arm_row_dumbbell, sets: 3, reps: 10, rest_sec: 60 }
+      - { exercise: glute_bridge_dumbbell, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: dead_bug, sets: 3, reps: 8, rest_sec: 45 }
+  - code: C
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: goblet_squat, sets: 3, reps: 12, rest_sec: 75 }
+      - { exercise: push_up, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: bent_over_row_dumbbell, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: rdl_dumbbell, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: farmer_carry_dumbbell, sets: 3, duration_sec: 40, rest_sec: 60 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 1, reps_delta: 0, duration_delta_sec: 5 }
+  - { week: 4, sets_delta: -1, reps_delta: -1, duration_delta_sec: 0 }
+reviewed: false

@@ -1,0 +1,1428 @@
+# Gym Leveling — exercise library (DRAFT, chưa được PT duyệt).
+# Format: see content/README.md. Every entry starts with reviewed: false.
+# equipment "none" = no training equipment; a sturdy chair, wall, step or table at home is allowed
+# and is mentioned in the description when needed.
+version: 1
+exercises:
+
+  # ───────────────────────── LOWER BODY — bodyweight ─────────────────────────
+
+  - id: sit_to_stand
+    name: { vi: "Ngồi xuống đứng lên ghế", en: "Sit-to-stand" }
+    description:
+      vi: "Ngồi ở mép một chiếc ghế chắc chắn, hai bàn chân rộng bằng hông. Hơi đổ người về trước, dồn lực xuống gót chân để đứng thẳng lên, rồi từ từ ngồi xuống chạm ghế. Thở ra khi đứng lên, hít vào khi ngồi xuống."
+      en: "Sit on the edge of a sturdy chair, feet hip-width apart. Lean slightly forward and push through your heels to stand tall, then lower slowly back to the chair. Exhale as you stand, inhale as you sit."
+    cues:
+      vi: ["Đầu gối hướng theo mũi chân", "Ngồi xuống chậm, không thả phịch", "Không dùng tay chống nếu không cần"]
+      en: ["Knees track over your toes", "Sit down slowly, don't drop", "Avoid pushing off with your hands unless needed"]
+    safety:
+      vi: "Dùng ghế không có bánh xe, kê sát tường; người hay chóng mặt nên đứng dậy chậm."
+      en: "Use a chair without wheels, placed against a wall; stand up slowly if you get dizzy."
+    muscle_groups: [quads, glutes]
+    equipment: [none]
+    difficulty: 1
+    measure: reps
+    easier: null
+    harder: squat_bodyweight
+    media: { youtube_query: "sit to stand exercise chair proper form" }
+    reviewed: false
+
+  - id: wall_sit
+    name: { vi: "Wall sit (ngồi dựa tường)", en: "Wall sit" }
+    description:
+      vi: "Dựa lưng vào tường, trượt người xuống đến khi đùi gần song song sàn hoặc cao hơn nếu thấy khó. Giữ yên tư thế trong thời gian quy định. Thở đều, không nín thở."
+      en: "Lean your back against a wall and slide down until your thighs are close to parallel, or higher if that is too hard. Hold the position for the set time. Breathe steadily; don't hold your breath."
+    cues:
+      vi: ["Lưng và đầu áp sát tường", "Đầu gối không vượt quá mũi chân nhiều", "Chọn độ sâu vừa sức"]
+      en: ["Back and head against the wall", "Knees roughly above the ankles", "Pick a depth you can hold"]
+    safety:
+      vi: "Người đau gối hoặc cao huyết áp nên ngồi cao hơn và giữ ngắn; dừng nếu đau khớp gối."
+      en: "With knee pain or high blood pressure, sit higher and hold shorter; stop if your knee hurts."
+    muscle_groups: [quads, glutes]
+    equipment: [none]
+    difficulty: 1
+    measure: time
+    easier: null
+    harder: null
+    media: { youtube_query: "wall sit proper form beginner" }
+    reviewed: false
+
+  - id: squat_bodyweight
+    name: { vi: "Squat", en: "Bodyweight squat" }
+    description:
+      vi: "Đứng hai chân rộng bằng vai, mũi chân hơi mở ra. Đẩy hông ra sau và gập gối để hạ người như ngồi xuống ghế, rồi đạp gót đứng lên. Hít vào khi xuống, thở ra khi lên."
+      en: "Stand with feet shoulder-width apart, toes slightly out. Push your hips back and bend your knees as if sitting into a chair, then drive through your heels to stand. Inhale on the way down, exhale on the way up."
+    cues:
+      vi: ["Ngực mở, lưng thẳng", "Gót chân bám sàn", "Đầu gối mở theo hướng mũi chân"]
+      en: ["Chest up, back neutral", "Heels stay down", "Knees follow your toes"]
+    safety:
+      vi: "Lỗi hay gặp là đầu gối chụm vào trong; chỉ xuống sâu đến mức không đau và không gù lưng."
+      en: "Common mistake: knees caving in. Only go as deep as you can without pain or rounding your back."
+    muscle_groups: [quads, glutes]
+    equipment: [none]
+    difficulty: 1
+    measure: reps
+    easier: sit_to_stand
+    harder: split_squat_bodyweight
+    media: { youtube_query: "bodyweight squat proper form" }
+    reviewed: false
+
+  - id: split_squat_bodyweight
+    name: { vi: "Split squat", en: "Split squat" }
+    description:
+      vi: "Đứng tư thế chân trước chân sau, hai chân cách nhau khoảng một bước dài. Hạ thẳng người xuống đến khi gối sau gần chạm sàn, rồi đẩy chân trước để lên. Làm đủ số lần một bên rồi đổi chân."
+      en: "Stand in a split stance, feet about one long stride apart. Lower straight down until the back knee nearly touches the floor, then push through the front foot to rise. Finish all reps on one side, then switch."
+    cues:
+      vi: ["Thân người thẳng đứng", "Trọng tâm dồn chân trước", "Có thể vịn tường để giữ thăng bằng"]
+      en: ["Torso upright", "Weight mostly on the front foot", "Hold a wall for balance if needed"]
+    safety:
+      vi: "Người yếu thăng bằng nên vịn tường; đặt khăn dưới gối sau nếu sàn cứng."
+      en: "If your balance is weak, hold a wall; put a towel under the back knee on hard floors."
+    muscle_groups: [quads, glutes]
+    equipment: [none]
+    difficulty: 2
+    measure: reps_per_side
+    easier: squat_bodyweight
+    harder: reverse_lunge_bodyweight
+    media: { youtube_query: "bodyweight split squat form" }
+    reviewed: false
+
+  - id: reverse_lunge_bodyweight
+    name: { vi: "Lunge lùi", en: "Reverse lunge" }
+    description:
+      vi: "Đứng thẳng, bước một chân lùi ra sau và hạ người đến khi hai gối gập khoảng 90 độ. Đạp chân trước để đưa chân sau về vị trí đứng. Đổi bên hoặc làm hết một bên theo quy định."
+      en: "Stand tall, step one foot back and lower until both knees bend to about 90 degrees. Push through the front foot to bring the back leg home. Alternate or finish one side as prescribed."
+    cues:
+      vi: ["Bước lùi đủ dài", "Gối trước không đổ vào trong", "Giữ thân người vững"]
+      en: ["Step back far enough", "Front knee doesn't cave in", "Keep your torso steady"]
+    safety:
+      vi: "Dễ đau gối hơn squat nếu bước quá ngắn; quay lại Split squat nếu mất thăng bằng."
+      en: "Short steps load the knee more; go back to split squats if you lose balance."
+    muscle_groups: [quads, glutes, hamstrings]
+    equipment: [none]
+    difficulty: 3
+    measure: reps_per_side
+    easier: split_squat_bodyweight
+    harder: bulgarian_split_squat_bodyweight
+    media: { youtube_query: "reverse lunge proper form" }
+    reviewed: false
+
+  - id: bulgarian_split_squat_bodyweight
+    name: { vi: "Bulgarian split squat", en: "Bulgarian split squat" }
+    description:
+      vi: "Đặt mu bàn chân sau lên một chiếc ghế chắc chắn, chân trước bước xa ra. Hạ người thẳng xuống đến khi đùi trước gần song song sàn, rồi đẩy lên. Làm hết một bên rồi đổi chân."
+      en: "Rest the top of your back foot on a sturdy chair and step the front foot well forward. Lower straight down until the front thigh is near parallel, then push up. Finish one side, then switch."
+    cues:
+      vi: ["Phần lớn trọng lượng ở chân trước", "Hông vuông về phía trước", "Xuống có kiểm soát"]
+      en: ["Most weight on the front leg", "Hips square to the front", "Control the descent"]
+    safety:
+      vi: "Bài đòi hỏi thăng bằng tốt; ghế phải không trượt, người đau gối nên giảm biên độ."
+      en: "Needs good balance; the chair must not slide. Reduce range if your knee is sore."
+    muscle_groups: [quads, glutes]
+    equipment: [none]
+    difficulty: 4
+    measure: reps_per_side
+    easier: reverse_lunge_bodyweight
+    harder: bulgarian_split_squat_dumbbell
+    media: { youtube_query: "bulgarian split squat bodyweight form" }
+    reviewed: false
+
+  - id: step_up_bodyweight
+    name: { vi: "Bước lên bục", en: "Step-up" }
+    description:
+      vi: "Đứng trước một bậc cầu thang hoặc bục chắc chắn cao khoảng tới giữa ống chân. Đặt cả bàn chân lên bục, đạp chân đó để đứng thẳng lên, rồi bước xuống có kiểm soát. Làm hết một bên rồi đổi chân."
+      en: "Face a stair or sturdy step about mid-shin high. Place your whole foot on it, drive through that leg to stand up, then step down under control. Finish one side, then switch."
+    cues:
+      vi: ["Cả bàn chân đặt trên bục", "Dùng chân trên bục để đẩy, không bật chân dưới", "Vịn tay vịn nếu cần"]
+      en: ["Whole foot on the step", "Push with the top leg, don't bounce off the bottom one", "Use a handrail if needed"]
+    safety:
+      vi: "Chọn bục thấp khi mới tập; không dùng ghế nhựa hay bề mặt trơn."
+      en: "Start with a low step; never use plastic chairs or slippery surfaces."
+    muscle_groups: [quads, glutes]
+    equipment: [none]
+    difficulty: 2
+    measure: reps_per_side
+    easier: sit_to_stand
+    harder: reverse_lunge_bodyweight
+    media: { youtube_query: "step up exercise proper form" }
+    reviewed: false
+
+  - id: hip_hinge_bodyweight
+    name: { vi: "Gập hông (hip hinge)", en: "Bodyweight hip hinge" }
+    description:
+      vi: "Đứng hai chân rộng bằng hông, gối hơi chùng, hai tay đặt lên hông. Đẩy mông ra sau và cúi thân về trước với lưng thẳng đến khi thấy căng sau đùi, rồi siết mông đứng thẳng lại. Thở ra khi đứng lên."
+      en: "Stand feet hip-width, knees soft, hands on hips. Push your hips back and tip your torso forward with a flat back until you feel your hamstrings stretch, then squeeze your glutes to stand. Exhale as you rise."
+    cues:
+      vi: ["Lưng luôn thẳng", "Chuyển động ở hông, không phải ở lưng", "Đầu nhìn theo thân người"]
+      en: ["Back stays flat", "Move at the hips, not the spine", "Keep your neck in line"]
+    safety:
+      vi: "Người đau lưng chỉ cúi ở biên độ không đau; đây là bài học kỹ thuật trước khi tập RDL."
+      en: "With back pain, use only a pain-free range; this teaches the pattern before RDLs."
+    muscle_groups: [hamstrings, glutes]
+    equipment: [none]
+    difficulty: 1
+    measure: reps
+    easier: null
+    harder: single_leg_rdl_bodyweight
+    media: { youtube_query: "hip hinge drill bodyweight" }
+    reviewed: false
+
+  - id: single_leg_rdl_bodyweight
+    name: { vi: "RDL một chân", en: "Single-leg Romanian deadlift" }
+    description:
+      vi: "Đứng trên một chân, gối hơi chùng. Gập hông cúi người về trước, chân kia duỗi thẳng ra sau thành một đường với thân, rồi siết mông trở về. Làm hết một bên rồi đổi chân."
+      en: "Stand on one leg with a soft knee. Hinge forward while the free leg extends behind you in line with your torso, then squeeze your glutes to return. Finish one side, then switch."
+    cues:
+      vi: ["Hông giữ ngang, không xoay", "Lưng thẳng", "Chạm nhẹ tay vào tường để giữ thăng bằng"]
+      en: ["Keep hips level, don't rotate", "Flat back", "Lightly touch a wall for balance"]
+    safety:
+      vi: "Dễ mất thăng bằng; tập gần tường và giảm biên độ nếu thấy căng lưng dưới."
+      en: "Balance-demanding; train near a wall and shorten the range if your lower back tightens."
+    muscle_groups: [hamstrings, glutes, core]
+    equipment: [none]
+    difficulty: 3
+    measure: reps_per_side
+    easier: hip_hinge_bodyweight
+    harder: null
+    media: { youtube_query: "single leg romanian deadlift bodyweight form" }
+    reviewed: false
+
+  - id: glute_bridge
+    name: { vi: "Glute bridge", en: "Glute bridge" }
+    description:
+      vi: "Nằm ngửa, gập gối, bàn chân đặt trên sàn rộng bằng hông. Siết mông đẩy hông lên đến khi thân và đùi thành một đường thẳng, giữ 1 giây rồi hạ xuống. Thở ra khi đẩy lên."
+      en: "Lie on your back, knees bent, feet flat and hip-width. Squeeze your glutes to lift your hips until your torso and thighs form a straight line, pause one second, then lower. Exhale as you lift."
+    cues:
+      vi: ["Đẩy bằng gót chân", "Siết mông ở điểm cao nhất", "Không ưỡn lưng quá mức"]
+      en: ["Drive through your heels", "Squeeze glutes at the top", "Don't over-arch your lower back"]
+    safety:
+      vi: "Phụ nữ mang thai từ tam cá nguyệt thứ hai nên tránh nằm ngửa lâu; hỏi bác sĩ trước."
+      en: "From the second trimester of pregnancy, avoid long periods lying on your back; check with a doctor."
+    muscle_groups: [glutes, hamstrings]
+    equipment: [mat]
+    difficulty: 1
+    measure: reps
+    easier: null
+    harder: single_leg_glute_bridge
+    media: { youtube_query: "glute bridge proper form" }
+    reviewed: false
+
+  - id: single_leg_glute_bridge
+    name: { vi: "Glute bridge một chân", en: "Single-leg glute bridge" }
+    description:
+      vi: "Nằm ngửa như Glute bridge, duỗi thẳng một chân lên. Đạp gót chân còn lại để đẩy hông lên, giữ hông ngang, rồi hạ xuống. Làm hết một bên rồi đổi chân."
+      en: "Set up like a glute bridge and extend one leg. Push through the planted heel to lift your hips, keeping them level, then lower. Finish one side, then switch."
+    cues:
+      vi: ["Hai bên hông ngang nhau", "Siết mông, không đẩy bằng lưng", "Lên xuống chậm"]
+      en: ["Hips stay level", "Use glutes, not your lower back", "Move slowly"]
+    safety:
+      vi: "Nếu chuột rút sau đùi, đặt bàn chân gần mông hơn và quay lại bài hai chân."
+      en: "If your hamstring cramps, bring the foot closer and go back to the two-leg version."
+    muscle_groups: [glutes, hamstrings]
+    equipment: [mat]
+    difficulty: 3
+    measure: reps_per_side
+    easier: glute_bridge
+    harder: null
+    media: { youtube_query: "single leg glute bridge form" }
+    reviewed: false
+
+  - id: calf_raise_bodyweight
+    name: { vi: "Nhón gót", en: "Calf raise" }
+    description:
+      vi: "Đứng thẳng, tay vịn nhẹ vào tường hoặc ghế. Nhón gót lên cao hết mức, giữ 1 giây rồi hạ chậm xuống. Thở đều trong suốt bài."
+      en: "Stand tall with a hand lightly on a wall or chair. Rise onto the balls of your feet as high as you can, pause one second, then lower slowly. Breathe steadily."
+    cues:
+      vi: ["Lên hết biên độ", "Hạ chậm 2–3 giây", "Đầu gối thẳng nhưng không khoá cứng"]
+      en: ["Full range up", "Lower over 2–3 seconds", "Knees straight but not locked"]
+    safety:
+      vi: "Người có vấn đề gân Achilles nên tập biên độ nhỏ và tăng dần."
+      en: "With Achilles problems, use a small range and build up gradually."
+    muscle_groups: [calves]
+    equipment: [none]
+    difficulty: 1
+    measure: reps
+    easier: null
+    harder: null
+    media: { youtube_query: "standing calf raise proper form" }
+    reviewed: false
+
+  # ───────────────────────── LOWER BODY — dumbbell ─────────────────────────
+
+  - id: goblet_squat
+    name: { vi: "Goblet squat", en: "Goblet squat" }
+    description:
+      vi: "Hai tay ôm một quả tạ đơn dựng đứng trước ngực. Đẩy hông ra sau, gập gối hạ người xuống, giữ ngực mở, rồi đạp gót đứng lên. Hít vào khi xuống, thở ra khi lên."
+      en: "Hold one dumbbell vertically against your chest. Push your hips back and bend your knees to lower, chest up, then drive through your heels to stand. Inhale down, exhale up."
+    cues:
+      vi: ["Tạ sát ngực", "Khuỷu tay hướng xuống giữa hai gối", "Gót chân không nhấc"]
+      en: ["Weight tight to your chest", "Elbows point down between the knees", "Heels stay down"]
+    safety:
+      vi: "Chọn tạ nhẹ để giữ lưng thẳng; dừng nếu đau gối hoặc lưng dưới."
+      en: "Pick a weight that lets you keep a flat back; stop if your knees or lower back hurt."
+    muscle_groups: [quads, glutes, core]
+    equipment: [dumbbell]
+    difficulty: 2
+    measure: reps
+    easier: squat_bodyweight
+    harder: split_squat_dumbbell
+    media: { youtube_query: "goblet squat dumbbell proper form" }
+    reviewed: false
+
+  - id: split_squat_dumbbell
+    name: { vi: "Split squat với tạ đơn", en: "Dumbbell split squat" }
+    description:
+      vi: "Hai tay cầm hai quả tạ đơn buông dọc thân, đứng tư thế chân trước chân sau. Hạ người thẳng xuống đến khi gối sau gần chạm sàn rồi đẩy lên. Làm hết một bên rồi đổi chân."
+      en: "Hold a dumbbell in each hand at your sides in a split stance. Lower straight down until the back knee nearly touches the floor, then push up. Finish one side, then switch."
+    cues:
+      vi: ["Thân thẳng đứng", "Vai thả lỏng, không nhún", "Đẩy bằng chân trước"]
+      en: ["Upright torso", "Shoulders relaxed, not shrugged", "Drive through the front foot"]
+    safety:
+      vi: "Nếu mất thăng bằng, dùng một tạ và tay kia vịn tường."
+      en: "If balance is an issue, hold one dumbbell and keep the other hand on a wall."
+    muscle_groups: [quads, glutes]
+    equipment: [dumbbell]
+    difficulty: 3
+    measure: reps_per_side
+    easier: split_squat_bodyweight
+    harder: bulgarian_split_squat_dumbbell
+    media: { youtube_query: "dumbbell split squat form" }
+    reviewed: false
+
+  - id: bulgarian_split_squat_dumbbell
+    name: { vi: "Bulgarian split squat với tạ đơn", en: "Dumbbell Bulgarian split squat" }
+    description:
+      vi: "Cầm hai tạ đơn, đặt mu bàn chân sau lên ghế hoặc ghế tập chắc chắn. Hạ người thẳng xuống đến khi đùi trước gần song song sàn rồi đẩy lên. Làm hết một bên rồi đổi chân."
+      en: "Hold two dumbbells and rest your back foot on a sturdy chair or bench. Lower until the front thigh is near parallel, then push up. Finish one side, then switch."
+    cues:
+      vi: ["Chân trước đủ xa ghế", "Thân hơi đổ về trước là bình thường", "Kiểm soát nhịp xuống"]
+      en: ["Front foot far enough from the bench", "A slight forward lean is fine", "Control the way down"]
+    safety:
+      vi: "Thành thạo bản không tạ trước; tạ nặng làm tăng nguy cơ ngã."
+      en: "Master the bodyweight version first; heavy weights raise the risk of falling."
+    muscle_groups: [quads, glutes]
+    equipment: [dumbbell]
+    difficulty: 4
+    measure: reps_per_side
+    easier: split_squat_dumbbell
+    harder: null
+    media: { youtube_query: "dumbbell bulgarian split squat form" }
+    reviewed: false
+
+  - id: rdl_dumbbell
+    name: { vi: "Romanian deadlift tạ đơn (RDL)", en: "Dumbbell Romanian deadlift" }
+    description:
+      vi: "Đứng cầm hai tạ đơn trước đùi, gối hơi chùng. Đẩy hông ra sau, trượt tạ dọc theo chân xuống đến khoảng giữa ống chân với lưng thẳng, rồi siết mông đứng lên. Hít vào khi xuống, thở ra khi lên."
+      en: "Stand holding two dumbbells in front of your thighs, knees soft. Push your hips back and slide the weights down your legs to about mid-shin with a flat back, then squeeze your glutes to stand. Inhale down, exhale up."
+    cues:
+      vi: ["Tạ đi sát chân", "Lưng thẳng suốt bài", "Dừng khi thấy căng sau đùi"]
+      en: ["Keep the weights close to your legs", "Flat back throughout", "Stop when your hamstrings are stretched"]
+    safety:
+      vi: "Lỗi hay gặp là gù lưng khi hạ thấp; người đau lưng nên học Gập hông trước."
+      en: "Common mistake: rounding the back at the bottom. With back pain, learn the hip hinge first."
+    muscle_groups: [hamstrings, glutes, back]
+    equipment: [dumbbell]
+    difficulty: 3
+    measure: reps
+    easier: hip_hinge_bodyweight
+    harder: rdl_barbell
+    media: { youtube_query: "dumbbell romanian deadlift proper form" }
+    reviewed: false
+
+  - id: glute_bridge_dumbbell
+    name: { vi: "Glute bridge với tạ đơn", en: "Dumbbell glute bridge" }
+    description:
+      vi: "Nằm ngửa, gập gối, đặt một quả tạ đơn trên hông và giữ bằng hai tay. Siết mông đẩy hông lên đến khi thân và đùi thẳng hàng, giữ 1 giây rồi hạ xuống. Thở ra khi đẩy lên."
+      en: "Lie on your back with knees bent and one dumbbell resting across your hips, held with both hands. Squeeze your glutes to lift until torso and thighs line up, pause, then lower. Exhale as you lift."
+    cues:
+      vi: ["Giữ tạ chắc trên xương hông", "Đẩy bằng gót", "Không ưỡn lưng"]
+      en: ["Hold the weight steady on your hip bones", "Drive through your heels", "Don't arch your back"]
+    safety:
+      vi: "Lót khăn dưới tạ cho đỡ đau xương hông; người mang thai hỏi bác sĩ trước khi nằm ngửa."
+      en: "Pad the dumbbell with a towel; if pregnant, ask a doctor before exercising on your back."
+    muscle_groups: [glutes, hamstrings]
+    equipment: [dumbbell, mat]
+    difficulty: 2
+    measure: reps
+    easier: glute_bridge
+    harder: single_leg_glute_bridge
+    media: { youtube_query: "dumbbell glute bridge form" }
+    reviewed: false
+
+  # ───────────────────────── LOWER BODY — gym ─────────────────────────
+
+  - id: leg_press
+    name: { vi: "Đạp đùi (Leg press)", en: "Leg press" }
+    description:
+      vi: "Ngồi vào máy, lưng và hông áp sát đệm, hai chân đặt trên bàn đạp rộng bằng vai. Mở chốt an toàn, gập gối hạ bàn đạp xuống có kiểm soát rồi đẩy lên. Thở ra khi đẩy."
+      en: "Sit in the machine with back and hips against the pad, feet shoulder-width on the platform. Release the safety, bend your knees to lower the sled under control, then press. Exhale as you press."
+    cues:
+      vi: ["Hông không nhấc khỏi đệm", "Không khoá cứng gối ở trên", "Gối hướng theo mũi chân"]
+      en: ["Hips stay on the pad", "Don't lock your knees at the top", "Knees follow your toes"]
+    safety:
+      vi: "Không hạ quá sâu đến mức hông cuộn lên; luôn khoá chốt an toàn khi xong."
+      en: "Don't go so deep that your hips curl off the pad; always re-engage the safety when done."
+    muscle_groups: [quads, glutes]
+    equipment: [machine]
+    difficulty: 2
+    measure: reps
+    easier: squat_bodyweight
+    harder: back_squat_barbell
+    media: { youtube_query: "leg press machine proper form" }
+    reviewed: false
+
+  - id: back_squat_barbell
+    name: { vi: "Squat với đòn (Back squat)", en: "Barbell back squat" }
+    description:
+      vi: "Đặt đòn trên phần cơ thang trong khung squat, chốt an toàn ngang tầm thấp nhất. Hít sâu gồng bụng, đẩy hông ra sau và gập gối hạ xuống, rồi đạp gót đứng lên. Thở ra khi qua điểm khó."
+      en: "Rest the bar on your upper back inside a rack with safety bars set just below your lowest point. Breathe in and brace, push your hips back and bend your knees to descend, then drive up. Exhale past the sticking point."
+    cues:
+      vi: ["Gồng bụng trước mỗi lần", "Gối mở theo mũi chân", "Ngực mở, lưng thẳng"]
+      en: ["Brace before every rep", "Knees track over toes", "Chest up, back neutral"]
+    safety:
+      vi: "Chỉ tập trong khung có thanh an toàn; không thử mức tạ tối đa, dừng 2 rep trước khi hỏng kỹ thuật."
+      en: "Train only in a rack with safety bars; no max attempts, stop about 2 reps before form breaks."
+    muscle_groups: [quads, glutes, core]
+    equipment: [barbell]
+    difficulty: 4
+    measure: reps
+    easier: goblet_squat
+    harder: null
+    media: { youtube_query: "barbell back squat proper form beginner" }
+    reviewed: false
+
+  - id: rdl_barbell
+    name: { vi: "Romanian deadlift với đòn", en: "Barbell Romanian deadlift" }
+    description:
+      vi: "Đứng cầm đòn trước đùi, tay rộng hơn vai một chút, gối hơi chùng. Đẩy hông ra sau, trượt đòn dọc chân xuống dưới gối với lưng thẳng, rồi siết mông đứng lên. Hít vào khi xuống, thở ra khi lên."
+      en: "Stand holding the bar in front of your thighs, hands just outside shoulder-width, knees soft. Push your hips back and slide the bar down past your knees with a flat back, then squeeze your glutes to stand. Inhale down, exhale up."
+    cues:
+      vi: ["Đòn luôn sát chân", "Vai kéo về sau", "Không hạ quá điểm lưng còn thẳng"]
+      en: ["Bar stays against your legs", "Shoulders pulled back", "Don't go lower than you can keep a flat back"]
+    safety:
+      vi: "Người có tiền sử đau lưng nên dùng tạ đơn nhẹ trước; không gù lưng để với thấp hơn."
+      en: "With a history of back pain, start with light dumbbells; never round to reach lower."
+    muscle_groups: [hamstrings, glutes, back]
+    equipment: [barbell]
+    difficulty: 4
+    measure: reps
+    easier: rdl_dumbbell
+    harder: null
+    media: { youtube_query: "barbell romanian deadlift proper form" }
+    reviewed: false
+
+  - id: leg_curl_machine
+    name: { vi: "Móc đùi trên máy (Leg curl)", en: "Machine leg curl" }
+    description:
+      vi: "Chỉnh máy để trục quay ngang khớp gối và đệm nằm ngay trên gót. Co gối kéo đệm về phía mông, giữ 1 giây rồi duỗi ra chậm. Thở ra khi co."
+      en: "Adjust the machine so the pivot lines up with your knee and the pad sits just above your heels. Curl the pad toward your glutes, pause, then extend slowly. Exhale as you curl."
+    cues:
+      vi: ["Hông không nhấc", "Duỗi chậm 2–3 giây", "Không giật tạ"]
+      en: ["Hips stay down", "Lower over 2–3 seconds", "No jerking"]
+    safety:
+      vi: "Bắt đầu với mức tạ nhẹ; dễ bị chuột rút sau đùi nếu tăng tạ quá nhanh."
+      en: "Start light; hamstrings cramp easily if the weight jumps too fast."
+    muscle_groups: [hamstrings]
+    equipment: [machine]
+    difficulty: 2
+    measure: reps
+    easier: null
+    harder: rdl_dumbbell
+    media: { youtube_query: "leg curl machine proper form" }
+    reviewed: false
+
+  # ───────────────────────── PUSH — bodyweight ─────────────────────────
+
+  - id: wall_push_up
+    name: { vi: "Hít đất dựa tường", en: "Wall push-up" }
+    description:
+      vi: "Đứng cách tường khoảng một cánh tay, đặt hai tay lên tường ngang vai. Gập khuỷu tay đưa ngực về phía tường, rồi đẩy ra. Hít vào khi vào gần, thở ra khi đẩy."
+      en: "Stand about an arm's length from a wall with hands on it at shoulder height. Bend your elbows to bring your chest toward the wall, then push away. Inhale in, exhale out."
+    cues:
+      vi: ["Người thẳng từ đầu đến gót", "Khuỷu tay chếch khoảng 45 độ", "Siết nhẹ bụng"]
+      en: ["Straight line head to heels", "Elbows at about 45 degrees", "Lightly brace your core"]
+    safety:
+      vi: "Phù hợp người mới và người cần tập nhẹ; dừng nếu đau vai."
+      en: "Good for beginners and light training; stop if your shoulder hurts."
+    muscle_groups: [chest, triceps, shoulders]
+    equipment: [none]
+    difficulty: 1
+    measure: reps
+    easier: null
+    harder: knee_push_up
+    media: { youtube_query: "wall push up proper form" }
+    reviewed: false
+
+  - id: knee_push_up
+    name: { vi: "Hít đất quỳ gối", en: "Knee push-up" }
+    description:
+      vi: "Chống hai tay rộng hơn vai một chút, quỳ gối trên thảm. Hạ ngực xuống gần sàn với người thẳng từ đầu đến gối, rồi đẩy lên. Hít vào khi xuống, thở ra khi đẩy."
+      en: "Hands slightly wider than shoulders, kneeling on a mat. Lower your chest toward the floor keeping a straight line from head to knees, then push up. Inhale down, exhale up."
+    cues:
+      vi: ["Không võng hông", "Khuỷu tay chếch 45 độ", "Đầu thẳng hàng với thân"]
+      en: ["Don't let your hips sag", "Elbows at 45 degrees", "Head in line with your body"]
+    safety:
+      vi: "Lót thảm dưới gối; người đau cổ tay có thể nắm tay hoặc dùng tay cầm hít đất."
+      en: "Pad your knees; with wrist pain, try fists or push-up handles."
+    muscle_groups: [chest, triceps, shoulders]
+    equipment: [mat]
+    difficulty: 1
+    measure: reps
+    easier: wall_push_up
+    harder: incline_push_up
+    media: { youtube_query: "knee push up proper form" }
+    reviewed: false
+
+  - id: incline_push_up
+    name: { vi: "Hít đất tay cao", en: "Incline push-up" }
+    description:
+      vi: "Chống hai tay lên mép bàn, ghế chắc chắn hoặc bậc cầu thang, người thẳng từ đầu đến gót. Hạ ngực xuống gần mép, rồi đẩy lên. Chỗ chống càng thấp bài càng khó."
+      en: "Place your hands on a sturdy table edge, bench or stair with your body straight from head to heels. Lower your chest to the edge, then push up. The lower the surface, the harder it gets."
+    cues:
+      vi: ["Siết mông và bụng", "Khuỷu tay chếch 45 độ", "Ngực chạm gần mép rồi mới đẩy"]
+      en: ["Squeeze glutes and abs", "Elbows at 45 degrees", "Bring your chest close before pressing"]
+    safety:
+      vi: "Bề mặt chống phải chắc, không trượt; lỗi hay gặp là võng hông."
+      en: "The surface must be stable and non-slip; common mistake: sagging hips."
+    muscle_groups: [chest, triceps, shoulders, core]
+    equipment: [none]
+    difficulty: 2
+    measure: reps
+    easier: knee_push_up
+    harder: push_up
+    media: { youtube_query: "incline push up proper form" }
+    reviewed: false
+
+  - id: push_up
+    name: { vi: "Hít đất", en: "Push-up" }
+    description:
+      vi: "Chống hai tay rộng hơn vai một chút, người thẳng từ đầu đến gót. Hạ ngực xuống gần sàn, rồi đẩy lên đến khi tay gần thẳng. Hít vào khi xuống, thở ra khi đẩy."
+      en: "Hands slightly wider than shoulders, body straight from head to heels. Lower your chest close to the floor, then press until your arms are nearly straight. Inhale down, exhale up."
+    cues:
+      vi: ["Thân người như một tấm ván", "Khuỷu tay chếch 45 độ", "Xuống đủ sâu"]
+      en: ["Body like a plank", "Elbows at 45 degrees", "Go through a full range"]
+    safety:
+      vi: "Nếu võng hông hoặc chỉ xuống được nửa chừng, quay lại Hít đất tay cao."
+      en: "If your hips sag or you only get halfway, go back to incline push-ups."
+    muscle_groups: [chest, triceps, shoulders, core]
+    equipment: [none]
+    difficulty: 3
+    measure: reps
+    easier: incline_push_up
+    harder: decline_push_up
+    media: { youtube_query: "push up proper form" }
+    reviewed: false
+
+  - id: decline_push_up
+    name: { vi: "Hít đất chân cao", en: "Decline push-up" }
+    description:
+      vi: "Đặt mũi chân lên ghế hoặc bậc thấp, hai tay chống sàn. Giữ người thẳng, hạ ngực xuống gần sàn rồi đẩy lên. Bài dồn nhiều lực hơn vào ngực trên và vai."
+      en: "Feet on a chair or low step, hands on the floor. Keep your body straight, lower your chest toward the floor, then push up. Places more load on the upper chest and shoulders."
+    cues:
+      vi: ["Siết bụng, không võng lưng", "Đầu không cúi gục", "Xuống có kiểm soát"]
+      en: ["Brace, don't sag", "Don't drop your head", "Control the descent"]
+    safety:
+      vi: "Chỉ tập khi làm được 15 lần Hít đất chuẩn; người cao huyết áp nên tránh tư thế đầu thấp."
+      en: "Only once you can do 15 standard push-ups; avoid head-down positions if you have high blood pressure."
+    muscle_groups: [chest, shoulders, triceps, core]
+    equipment: [none]
+    difficulty: 4
+    measure: reps
+    easier: push_up
+    harder: null
+    media: { youtube_query: "decline push up proper form" }
+    reviewed: false
+
+  - id: diamond_push_up
+    name: { vi: "Hít đất tay hẹp", en: "Close-grip push-up" }
+    description:
+      vi: "Chống hai tay gần nhau ngay dưới ngực, khuỷu tay ép sát thân. Hạ người xuống rồi đẩy lên, giữ người thẳng. Bài tập trung nhiều vào tay sau."
+      en: "Hands close together under your chest, elbows tucked to your sides. Lower and press up, keeping your body straight. Emphasises the triceps."
+    cues:
+      vi: ["Khuỷu tay ép sát người", "Người thẳng như tấm ván", "Có thể làm trên bục cao cho dễ hơn"]
+      en: ["Elbows tight to your body", "Body like a plank", "Use a raised surface to make it easier"]
+    safety:
+      vi: "Dễ gây đau cổ tay và khuỷu; không cần chụm tay thành hình kim cương nếu thấy khó chịu."
+      en: "Can strain wrists and elbows; hands don't need to form a diamond if it feels uncomfortable."
+    muscle_groups: [triceps, chest]
+    equipment: [none]
+    difficulty: 4
+    measure: reps
+    easier: push_up
+    harder: null
+    media: { youtube_query: "close grip push up triceps form" }
+    reviewed: false
+
+  - id: pike_push_up
+    name: { vi: "Pike push-up", en: "Pike push-up" }
+    description:
+      vi: "Từ tư thế hít đất, đẩy hông lên cao thành hình chữ V ngược. Gập khuỷu tay hạ đỉnh đầu về phía sàn giữa hai tay, rồi đẩy lên. Bài tập trung vào vai."
+      en: "From a push-up position, lift your hips into an inverted V. Bend your elbows to lower the top of your head toward the floor between your hands, then press up. Targets the shoulders."
+    cues:
+      vi: ["Hông giữ cao", "Đầu đi về trước tay một chút", "Hạ chậm"]
+      en: ["Keep hips high", "Head travels slightly in front of hands", "Lower slowly"]
+    safety:
+      vi: "Không phù hợp người cao huyết áp, tăng nhãn áp hoặc đau vai; tư thế đầu thấp."
+      en: "Not for people with high blood pressure, glaucoma or shoulder pain (head-down position)."
+    muscle_groups: [shoulders, triceps]
+    equipment: [none]
+    difficulty: 4
+    measure: reps
+    easier: push_up
+    harder: null
+    media: { youtube_query: "pike push up proper form" }
+    reviewed: false
+
+  # ───────────────────────── PUSH — dumbbell ─────────────────────────
+
+  - id: floor_press_dumbbell
+    name: { vi: "Đẩy ngực tạ đơn trên sàn", en: "Dumbbell floor press" }
+    description:
+      vi: "Nằm ngửa trên thảm, gập gối, hai tay cầm tạ đơn, khuỷu tay chạm sàn. Đẩy tạ thẳng lên trên ngực, rồi hạ xuống đến khi bắp tay chạm sàn nhẹ nhàng. Thở ra khi đẩy."
+      en: "Lie on a mat with knees bent, a dumbbell in each hand, upper arms on the floor. Press the weights up over your chest, then lower until your upper arms touch the floor softly. Exhale as you press."
+    cues:
+      vi: ["Khuỷu tay chếch 45 độ", "Cổ tay thẳng", "Chạm sàn nhẹ, không dội"]
+      en: ["Elbows at 45 degrees", "Wrists straight", "Touch the floor softly, no bouncing"]
+    safety:
+      vi: "Sàn giới hạn biên độ nên thân thiện với vai; nhờ người đưa tạ hoặc lăn tạ lên khi tạ nặng."
+      en: "The floor limits range, which is shoulder-friendly; roll heavier weights into position carefully."
+    muscle_groups: [chest, triceps, shoulders]
+    equipment: [dumbbell, mat]
+    difficulty: 2
+    measure: reps
+    easier: knee_push_up
+    harder: bench_press_dumbbell
+    media: { youtube_query: "dumbbell floor press form" }
+    reviewed: false
+
+  - id: bench_press_dumbbell
+    name: { vi: "Đẩy ngực tạ đơn trên ghế", en: "Dumbbell bench press" }
+    description:
+      vi: "Nằm trên ghế phẳng, bàn chân đặt chắc trên sàn, hai tay cầm tạ ngang ngực. Đẩy tạ lên trên ngực, rồi hạ chậm xuống đến khi khuỷu hơi thấp hơn mặt ghế. Thở ra khi đẩy."
+      en: "Lie on a flat bench with feet planted, dumbbells at chest level. Press the weights up over your chest, then lower slowly until your elbows are just below the bench. Exhale as you press."
+    cues:
+      vi: ["Bả vai ép xuống ghế", "Khuỷu tay chếch 45 độ", "Hạ chậm 2 giây"]
+      en: ["Shoulder blades pinned to the bench", "Elbows at 45 degrees", "Lower over 2 seconds"]
+    safety:
+      vi: "Không hạ tạ quá sâu nếu đau vai; tạ nặng nên đặt lên đùi trước rồi mới nằm xuống."
+      en: "Don't lower too deep with shoulder pain; set heavier weights on your thighs before lying back."
+    muscle_groups: [chest, triceps, shoulders]
+    equipment: [dumbbell, bench]
+    difficulty: 3
+    measure: reps
+    easier: floor_press_dumbbell
+    harder: bench_press_barbell
+    media: { youtube_query: "dumbbell bench press proper form" }
+    reviewed: false
+
+  - id: seated_shoulder_press_dumbbell
+    name: { vi: "Đẩy vai tạ đơn ngồi ghế", en: "Seated dumbbell shoulder press" }
+    description:
+      vi: "Ngồi thẳng trên ghế có tựa, hai tay cầm tạ ngang vai, lòng bàn tay hướng về trước hoặc vào trong. Đẩy tạ lên đến khi tay gần thẳng, rồi hạ chậm về ngang vai. Thở ra khi đẩy."
+      en: "Sit upright on a chair with back support, dumbbells at shoulder height, palms forward or facing in. Press up until your arms are nearly straight, then lower slowly to shoulder level. Exhale as you press."
+    cues:
+      vi: ["Lưng áp tựa ghế", "Không ưỡn lưng", "Tạ đi thẳng lên"]
+      en: ["Back against the chair", "Don't arch your back", "Press straight up"]
+    safety:
+      vi: "Người đau vai hoặc không giơ tay qua đầu được thoải mái nên bỏ qua bài này."
+      en: "Skip this if you have shoulder pain or can't raise your arms overhead comfortably."
+    muscle_groups: [shoulders, triceps]
+    equipment: [dumbbell]
+    difficulty: 2
+    measure: reps
+    easier: null
+    harder: shoulder_press_dumbbell
+    media: { youtube_query: "seated dumbbell shoulder press form" }
+    reviewed: false
+
+  - id: shoulder_press_dumbbell
+    name: { vi: "Đẩy vai tạ đơn đứng", en: "Standing dumbbell shoulder press" }
+    description:
+      vi: "Đứng hai chân rộng bằng hông, hai tay cầm tạ ngang vai. Gồng bụng, siết mông, đẩy tạ lên đến khi tay gần thẳng rồi hạ chậm. Thở ra khi đẩy."
+      en: "Stand feet hip-width, dumbbells at shoulder height. Brace your abs, squeeze your glutes and press up until your arms are nearly straight, then lower slowly. Exhale as you press."
+    cues:
+      vi: ["Gồng bụng, không ưỡn lưng", "Đầu hơi lùi để tạ đi thẳng", "Không bật đầu gối"]
+      en: ["Brace, no back arch", "Move your head back slightly so the weights travel straight", "Don't use leg drive"]
+    safety:
+      vi: "Lỗi hay gặp là ưỡn lưng để đẩy tạ nặng; giảm tạ hoặc chuyển sang ngồi."
+      en: "Common mistake: arching the back to push heavy weight; go lighter or sit down."
+    muscle_groups: [shoulders, triceps, core]
+    equipment: [dumbbell]
+    difficulty: 3
+    measure: reps
+    easier: seated_shoulder_press_dumbbell
+    harder: overhead_press_barbell
+    media: { youtube_query: "standing dumbbell shoulder press form" }
+    reviewed: false
+
+  - id: lateral_raise_dumbbell
+    name: { vi: "Nâng tạ ngang (Lateral raise)", en: "Dumbbell lateral raise" }
+    description:
+      vi: "Đứng thẳng, hai tay cầm tạ nhẹ buông dọc thân, khuỷu hơi cong. Nâng hai tay sang ngang đến ngang vai, rồi hạ chậm. Thở ra khi nâng."
+      en: "Stand tall with light dumbbells at your sides, elbows slightly bent. Raise your arms out to shoulder height, then lower slowly. Exhale as you lift."
+    cues:
+      vi: ["Dẫn bằng khuỷu tay", "Không nhún vai", "Tạ nhẹ, không đung đưa người"]
+      en: ["Lead with your elbows", "Don't shrug", "Light weight, no swinging"]
+    safety:
+      vi: "Không nâng cao quá vai nếu bị đau vai; chọn tạ rất nhẹ."
+      en: "Don't raise above shoulder height with shoulder pain; use very light weights."
+    muscle_groups: [shoulders]
+    equipment: [dumbbell]
+    difficulty: 2
+    measure: reps
+    easier: null
+    harder: null
+    media: { youtube_query: "dumbbell lateral raise proper form" }
+    reviewed: false
+
+  - id: overhead_triceps_extension_dumbbell
+    name: { vi: "Duỗi tay sau qua đầu với tạ đơn", en: "Overhead dumbbell triceps extension" }
+    description:
+      vi: "Ngồi hoặc đứng, hai tay ôm một quả tạ đơn giơ thẳng qua đầu. Gập khuỷu hạ tạ ra sau đầu, rồi duỗi tay đưa tạ lên. Thở ra khi duỗi."
+      en: "Sit or stand holding one dumbbell with both hands overhead. Bend your elbows to lower it behind your head, then extend to lift it. Exhale as you extend."
+    cues:
+      vi: ["Khuỷu tay hướng lên, không bành ra", "Gồng bụng", "Hạ chậm"]
+      en: ["Elbows point up, not out", "Brace your core", "Lower slowly"]
+    safety:
+      vi: "Người đau vai hoặc khuỷu nên dùng tạ nhẹ, giảm biên độ hoặc bỏ qua."
+      en: "With shoulder or elbow pain, go lighter, shorten the range or skip it."
+    muscle_groups: [triceps]
+    equipment: [dumbbell]
+    difficulty: 2
+    measure: reps
+    easier: null
+    harder: diamond_push_up
+    media: { youtube_query: "overhead dumbbell triceps extension form" }
+    reviewed: false
+
+  # ───────────────────────── PUSH — gym ─────────────────────────
+
+  - id: chest_press_machine
+    name: { vi: "Đẩy ngực trên máy", en: "Machine chest press" }
+    description:
+      vi: "Chỉnh ghế để tay cầm ngang giữa ngực. Lưng áp đệm, đẩy tay cầm ra trước đến khi tay gần thẳng, rồi thu về chậm. Thở ra khi đẩy."
+      en: "Adjust the seat so the handles line up with mid-chest. Back on the pad, press forward until your arms are nearly straight, then return slowly. Exhale as you press."
+    cues:
+      vi: ["Bả vai áp đệm", "Không khoá cứng khuỷu", "Thu về có kiểm soát"]
+      en: ["Shoulder blades on the pad", "Don't lock your elbows", "Control the return"]
+    safety:
+      vi: "Máy giữ quỹ đạo ổn định nên phù hợp người mới; bắt đầu tạ nhẹ."
+      en: "The fixed path suits beginners; start light."
+    muscle_groups: [chest, triceps, shoulders]
+    equipment: [machine]
+    difficulty: 2
+    measure: reps
+    easier: wall_push_up
+    harder: bench_press_dumbbell
+    media: { youtube_query: "machine chest press proper form" }
+    reviewed: false
+
+  - id: bench_press_barbell
+    name: { vi: "Đẩy ngực đòn (Bench press)", en: "Barbell bench press" }
+    description:
+      vi: "Nằm trên ghế, mắt ngay dưới đòn, tay rộng hơn vai một chút, chốt an toàn hoặc có người hỗ trợ. Hạ đòn chậm xuống giữa ngực, rồi đẩy lên. Thở ra khi đẩy."
+      en: "Lie on the bench with eyes under the bar, hands slightly wider than shoulders, safety pins set or a spotter present. Lower the bar to mid-chest under control, then press. Exhale as you press."
+    cues:
+      vi: ["Bả vai ép xuống ghế", "Bàn chân đạp chắc sàn", "Đòn chạm ngực nhẹ, không dội"]
+      en: ["Shoulder blades pinned", "Feet planted", "Touch the chest lightly, no bouncing"]
+    safety:
+      vi: "Luôn có chốt an toàn hoặc người hỗ trợ; không tập tạ tối đa, dừng 2 rep trước khi hỏng."
+      en: "Always use safety pins or a spotter; no max attempts, stop about 2 reps before failure."
+    muscle_groups: [chest, triceps, shoulders]
+    equipment: [barbell, bench]
+    difficulty: 4
+    measure: reps
+    easier: bench_press_dumbbell
+    harder: null
+    media: { youtube_query: "barbell bench press proper form safety" }
+    reviewed: false
+
+  - id: overhead_press_barbell
+    name: { vi: "Đẩy vai đòn đứng (Overhead press)", en: "Barbell overhead press" }
+    description:
+      vi: "Đứng cầm đòn ngang trước vai, tay rộng hơn vai một chút. Gồng bụng siết mông, đẩy đòn thẳng lên qua đầu, rồi hạ về trước vai. Thở ra khi đẩy."
+      en: "Stand with the bar resting at the front of your shoulders, hands just outside shoulder-width. Brace and squeeze your glutes, press the bar straight overhead, then lower to your shoulders. Exhale as you press."
+    cues:
+      vi: ["Gồng bụng, không ưỡn lưng", "Đầu lùi nhẹ để đòn đi thẳng", "Khoá tay ở trên, đòn ngang giữa bàn chân"]
+      en: ["Brace, no back arch", "Pull your head back so the bar path is straight", "Finish with the bar over mid-foot"]
+    safety:
+      vi: "Bài khó cho vai và lưng dưới; người đau vai không nên tập, ưu tiên tạ đơn ngồi."
+      en: "Demanding on shoulders and lower back; skip with shoulder pain and use the seated dumbbell press."
+    muscle_groups: [shoulders, triceps, core]
+    equipment: [barbell]
+    difficulty: 4
+    measure: reps
+    easier: shoulder_press_dumbbell
+    harder: null
+    media: { youtube_query: "barbell overhead press proper form" }
+    reviewed: false
+
+  - id: triceps_pushdown_cable
+    name: { vi: "Kéo cáp tay sau (Triceps pushdown)", en: "Cable triceps pushdown" }
+    description:
+      vi: "Đứng trước máy cáp, cầm thanh hoặc dây ở ngang ngực, khuỷu ép sát thân. Duỗi tay đẩy xuống đến khi tay thẳng, rồi thu về chậm. Thở ra khi đẩy xuống."
+      en: "Stand at a cable stack holding a bar or rope at chest height, elbows tucked. Extend your arms down until straight, then return slowly. Exhale as you push down."
+    cues:
+      vi: ["Khuỷu tay cố định bên hông", "Không đổ người dùng sức nặng cơ thể", "Thu về chậm"]
+      en: ["Elbows fixed at your sides", "Don't lean your bodyweight into it", "Slow return"]
+    safety:
+      vi: "Người đau khuỷu nên dùng dây cáp thay thanh thẳng và giảm tạ."
+      en: "With elbow pain, use a rope instead of a straight bar and go lighter."
+    muscle_groups: [triceps]
+    equipment: [cable]
+    difficulty: 2
+    measure: reps
+    easier: null
+    harder: diamond_push_up
+    media: { youtube_query: "cable triceps pushdown proper form" }
+    reviewed: false
+
+  # ───────────────────────── PULL — bodyweight ─────────────────────────
+
+  - id: doorway_row
+    name: { vi: "Kéo khung cửa", en: "Doorway row" }
+    description:
+      vi: "Đứng trong khung cửa, hai tay nắm chắc hai bên khung, chân sát ngưỡng cửa. Ngả người ra sau đến khi tay duỗi thẳng, rồi kéo ngực về phía khung bằng cách siết hai bả vai. Thở ra khi kéo."
+      en: "Stand in a doorway gripping both sides of the frame, feet close to the threshold. Lean back until your arms are straight, then pull your chest toward the frame by squeezing your shoulder blades. Exhale as you pull."
+    cues:
+      vi: ["Người thẳng từ đầu đến gót", "Siết bả vai về sau", "Chân càng gần cửa càng khó"]
+      en: ["Straight line head to heels", "Squeeze your shoulder blades", "Feet closer to the door = harder"]
+    safety:
+      vi: "Dùng khung cửa chắc chắn, tay nắm chắc; không ngả người quá xa khi mới tập."
+      en: "Use a solid frame and grip firmly; don't lean back too far at first."
+    muscle_groups: [back, biceps]
+    equipment: [none]
+    difficulty: 1
+    measure: reps
+    easier: null
+    harder: table_row
+    media: { youtube_query: "doorway row exercise at home" }
+    reviewed: false
+
+  - id: table_row
+    name: { vi: "Kéo xà dưới gầm bàn (Inverted row)", en: "Table inverted row" }
+    description:
+      vi: "Nằm ngửa dưới một chiếc bàn thật chắc, hai tay nắm mép bàn rộng bằng vai. Giữ người thẳng, kéo ngực lên chạm gần mép bàn, rồi hạ chậm. Thở ra khi kéo."
+      en: "Lie under a very sturdy table and grip the edge shoulder-width apart. Keep your body straight, pull your chest up toward the edge, then lower slowly. Exhale as you pull."
+    cues:
+      vi: ["Siết mông giữ người thẳng", "Kéo bả vai về sau", "Gập gối để dễ hơn"]
+      en: ["Squeeze glutes to stay straight", "Pull your shoulder blades back", "Bend your knees to make it easier"]
+    safety:
+      vi: "Chỉ dùng bàn gỗ/kim loại nặng, không lật; thử tải trước khi tập. Có xà đơn thì dùng xà thấp an toàn hơn."
+      en: "Only use a heavy wood/metal table that cannot tip; test it first. A low bar is safer if available."
+    muscle_groups: [back, biceps, core]
+    equipment: [none]
+    difficulty: 3
+    measure: reps
+    easier: doorway_row
+    harder: negative_pull_up
+    media: { youtube_query: "inverted row under table at home" }
+    reviewed: false
+
+  - id: prone_y_raise
+    name: { vi: "Nằm sấp nâng tay chữ Y", en: "Prone Y raise" }
+    description:
+      vi: "Nằm sấp trên thảm, hai tay duỗi về trước thành hình chữ Y, ngón cái hướng lên. Siết bả vai nâng hai tay khỏi sàn vài cm, giữ 1 giây rồi hạ. Thở ra khi nâng."
+      en: "Lie face down on a mat with arms overhead in a Y, thumbs up. Squeeze your shoulder blades to lift your arms a few centimetres, pause, then lower. Exhale as you lift."
+    cues:
+      vi: ["Nâng bằng lưng trên, không ngóc đầu", "Biên độ nhỏ là đủ", "Cổ thả lỏng"]
+      en: ["Lift from the upper back, not by raising your head", "A small range is enough", "Relax your neck"]
+    safety:
+      vi: "Bài nhẹ cho tư thế và vai; dừng nếu có cảm giác chèn ép vai."
+      en: "A gentle posture/shoulder drill; stop if you feel a pinch in the shoulder."
+    muscle_groups: [back, shoulders]
+    equipment: [mat]
+    difficulty: 1
+    measure: reps
+    easier: null
+    harder: reverse_snow_angel
+    media: { youtube_query: "prone Y raise exercise" }
+    reviewed: false
+
+  - id: reverse_snow_angel
+    name: { vi: "Thiên thần tuyết nằm sấp", en: "Reverse snow angel" }
+    description:
+      vi: "Nằm sấp, nâng nhẹ ngực và hai tay khỏi sàn. Vẽ hai tay theo hình vòng cung từ hông lên qua đầu rồi về lại, tay không chạm sàn. Thở đều trong suốt bài."
+      en: "Lie face down and lift your chest and arms slightly off the floor. Sweep your arms in an arc from your hips to overhead and back without touching the floor. Breathe steadily."
+    cues:
+      vi: ["Ngực chỉ nâng nhẹ", "Chuyển động chậm", "Siết bả vai suốt bài"]
+      en: ["Only a slight chest lift", "Move slowly", "Keep the shoulder blades engaged"]
+    safety:
+      vi: "Người đau lưng dưới nên để ngực chạm sàn và chỉ nâng tay."
+      en: "With lower-back pain, keep your chest down and lift only the arms."
+    muscle_groups: [back, shoulders]
+    equipment: [mat]
+    difficulty: 2
+    measure: reps
+    easier: prone_y_raise
+    harder: null
+    media: { youtube_query: "reverse snow angel exercise form" }
+    reviewed: false
+
+  # ───────────────────────── PULL — dumbbell ─────────────────────────
+
+  - id: one_arm_row_dumbbell
+    name: { vi: "Kéo tạ đơn một tay", en: "One-arm dumbbell row" }
+    description:
+      vi: "Một tay và một gối chống lên ghế hoặc ghế tập, tay kia cầm tạ buông thẳng. Kéo tạ về phía hông, siết bả vai, rồi hạ chậm. Làm hết một bên rồi đổi tay."
+      en: "Support one hand and knee on a bench or sturdy chair, the other hand holding a dumbbell straight down. Row the weight toward your hip, squeeze your shoulder blade, then lower slowly. Finish one side, then switch."
+    cues:
+      vi: ["Lưng thẳng, song song sàn", "Kéo về hông, không về ngực", "Không xoay thân"]
+      en: ["Flat back, roughly parallel to the floor", "Pull toward your hip, not your chest", "Don't twist your torso"]
+    safety:
+      vi: "Tay chống giúp đỡ lưng nên phù hợp người mới; không giật tạ."
+      en: "Supported position protects the back, good for beginners; don't jerk the weight."
+    muscle_groups: [back, biceps]
+    equipment: [dumbbell]
+    difficulty: 2
+    measure: reps_per_side
+    easier: doorway_row
+    harder: bent_over_row_dumbbell
+    media: { youtube_query: "one arm dumbbell row proper form" }
+    reviewed: false
+
+  - id: bent_over_row_dumbbell
+    name: { vi: "Kéo tạ đơn cúi người", en: "Bent-over dumbbell row" }
+    description:
+      vi: "Đứng cầm hai tạ đơn, gập hông cúi người khoảng 45 độ, lưng thẳng. Kéo hai tạ về phía hông, siết bả vai, rồi hạ chậm. Thở ra khi kéo."
+      en: "Hold two dumbbells and hinge to about 45 degrees with a flat back. Row both weights toward your hips, squeeze your shoulder blades, then lower slowly. Exhale as you row."
+    cues:
+      vi: ["Lưng thẳng suốt bài", "Gối hơi chùng", "Khuỷu tay đi sát thân"]
+      en: ["Flat back throughout", "Soft knees", "Elbows travel close to your body"]
+    safety:
+      vi: "Không có điểm chống nên tải lên lưng dưới; người đau lưng dùng Kéo tạ đơn một tay."
+      en: "Unsupported, so it loads the lower back; with back pain use the one-arm row."
+    muscle_groups: [back, biceps]
+    equipment: [dumbbell]
+    difficulty: 3
+    measure: reps
+    easier: one_arm_row_dumbbell
+    harder: bent_over_row_barbell
+    media: { youtube_query: "bent over dumbbell row proper form" }
+    reviewed: false
+
+  - id: rear_delt_fly_dumbbell
+    name: { vi: "Bay vai sau tạ đơn", en: "Dumbbell rear delt fly" }
+    description:
+      vi: "Ngồi ở mép ghế, cúi người về trước, hai tay cầm tạ nhẹ buông dưới chân. Nâng hai tay sang ngang đến ngang vai với khuỷu hơi cong, rồi hạ chậm. Thở ra khi nâng."
+      en: "Sit at the edge of a chair, lean forward with light dumbbells hanging below. Raise your arms out to shoulder height with soft elbows, then lower slowly. Exhale as you lift."
+    cues:
+      vi: ["Tạ rất nhẹ", "Dẫn bằng khuỷu tay", "Không nhún vai"]
+      en: ["Very light weights", "Lead with your elbows", "Don't shrug"]
+    safety:
+      vi: "Ngồi cúi giúp đỡ lưng hơn đứng cúi; tránh đung đưa người."
+      en: "Seated lean is easier on the back than standing; avoid swinging."
+    muscle_groups: [shoulders, back]
+    equipment: [dumbbell]
+    difficulty: 2
+    measure: reps
+    easier: prone_y_raise
+    harder: null
+    media: { youtube_query: "seated dumbbell rear delt fly form" }
+    reviewed: false
+
+  - id: biceps_curl_dumbbell
+    name: { vi: "Cuốn tạ tay trước (Biceps curl)", en: "Dumbbell biceps curl" }
+    description:
+      vi: "Đứng thẳng, hai tay cầm tạ buông dọc thân, lòng bàn tay hướng về trước. Gập khuỷu cuốn tạ lên ngang vai, rồi hạ chậm. Thở ra khi cuốn lên."
+      en: "Stand tall with dumbbells at your sides, palms forward. Curl the weights up toward your shoulders, then lower slowly. Exhale as you curl."
+    cues:
+      vi: ["Khuỷu tay cố định bên hông", "Không đung đưa người", "Hạ chậm 2 giây"]
+      en: ["Elbows fixed at your sides", "No swinging", "Lower over 2 seconds"]
+    safety:
+      vi: "Lỗi hay gặp là dùng lưng để vung tạ; giảm tạ nếu phải đung đưa."
+      en: "Common mistake: swinging with the back; go lighter if you have to swing."
+    muscle_groups: [biceps]
+    equipment: [dumbbell]
+    difficulty: 2
+    measure: reps
+    easier: null
+    harder: null
+    media: { youtube_query: "dumbbell biceps curl proper form" }
+    reviewed: false
+
+  # ───────────────────────── PULL — gym ─────────────────────────
+
+  - id: lat_pulldown
+    name: { vi: "Kéo xô (Lat pulldown)", en: "Lat pulldown" }
+    description:
+      vi: "Ngồi vào máy, chỉnh đệm giữ đùi, cầm thanh rộng hơn vai. Ngả nhẹ người ra sau, kéo thanh xuống trước ngực trên bằng cách đưa khuỷu xuống dưới, rồi thả lên chậm. Thở ra khi kéo."
+      en: "Sit with the thigh pad set and grip the bar wider than shoulders. Lean back slightly and pull the bar to your upper chest by driving your elbows down, then let it up slowly. Exhale as you pull."
+    cues:
+      vi: ["Kéo bằng khuỷu tay", "Ngực hướng lên thanh", "Không kéo ra sau gáy"]
+      en: ["Drive with your elbows", "Chest up to meet the bar", "Never pull behind the neck"]
+    safety:
+      vi: "Không kéo thanh ra sau gáy; không ngả người quá nhiều để kéo tạ nặng."
+      en: "Never pull behind the neck; don't lean way back to move heavy weight."
+    muscle_groups: [back, biceps]
+    equipment: [cable]
+    difficulty: 2
+    measure: reps
+    easier: null
+    harder: negative_pull_up
+    media: { youtube_query: "lat pulldown proper form" }
+    reviewed: false
+
+  - id: seated_cable_row
+    name: { vi: "Kéo cáp ngồi (Seated row)", en: "Seated cable row" }
+    description:
+      vi: "Ngồi trên máy kéo cáp, chân đạp lên bàn đạp, gối hơi chùng, lưng thẳng. Kéo tay cầm về phía bụng, siết bả vai, rồi duỗi tay ra chậm. Thở ra khi kéo."
+      en: "Sit at the row station, feet on the platform, knees soft, back straight. Pull the handle to your stomach, squeeze your shoulder blades, then extend slowly. Exhale as you pull."
+    cues:
+      vi: ["Thân người gần như không đổ trước sau", "Siết bả vai cuối nhịp", "Vai không nhún"]
+      en: ["Torso stays mostly still", "Squeeze shoulder blades at the end", "Don't shrug"]
+    safety:
+      vi: "Lỗi hay gặp là đổ người ra sau để kéo; giảm tạ để giữ lưng thẳng."
+      en: "Common mistake: rocking back to pull; reduce the weight to keep your back still."
+    muscle_groups: [back, biceps]
+    equipment: [cable]
+    difficulty: 2
+    measure: reps
+    easier: null
+    harder: bent_over_row_dumbbell
+    media: { youtube_query: "seated cable row proper form" }
+    reviewed: false
+
+  - id: bent_over_row_barbell
+    name: { vi: "Kéo đòn cúi người (Barbell row)", en: "Barbell bent-over row" }
+    description:
+      vi: "Cầm đòn rộng bằng vai, gập hông cúi người khoảng 45 độ, lưng thẳng. Kéo đòn về phía rốn, siết bả vai, rồi hạ chậm. Thở ra khi kéo."
+      en: "Grip the bar shoulder-width and hinge to about 45 degrees with a flat back. Row the bar to your navel, squeeze your shoulder blades, then lower slowly. Exhale as you row."
+    cues:
+      vi: ["Lưng thẳng, gồng bụng", "Không giật người lên", "Đòn đi sát đùi"]
+      en: ["Flat back, braced core", "Don't heave with your torso", "Bar travels close to your thighs"]
+    safety:
+      vi: "Tải nhiều lên lưng dưới; người đau lưng nên dùng Kéo cáp ngồi hoặc tạ đơn một tay."
+      en: "Heavy on the lower back; with back pain use seated cable rows or one-arm rows."
+    muscle_groups: [back, biceps, hamstrings]
+    equipment: [barbell]
+    difficulty: 4
+    measure: reps
+    easier: bent_over_row_dumbbell
+    harder: null
+    media: { youtube_query: "barbell bent over row proper form" }
+    reviewed: false
+
+  - id: face_pull_cable
+    name: { vi: "Face pull", en: "Cable face pull" }
+    description:
+      vi: "Đặt ròng rọc ngang mặt, cầm dây cáp hai đầu. Kéo dây về phía mặt, tách hai tay sang hai bên và xoay tay ra sau, rồi duỗi ra chậm. Thở ra khi kéo."
+      en: "Set the pulley at face height and hold a rope attachment. Pull toward your face, separating your hands and rotating them back, then extend slowly. Exhale as you pull."
+    cues:
+      vi: ["Khuỷu tay cao ngang vai", "Kéo tách dây ra hai bên", "Tạ nhẹ, chậm"]
+      en: ["Elbows high, at shoulder level", "Pull the rope apart", "Light and slow"]
+    safety:
+      vi: "Bài tốt cho tư thế vai; không dùng tạ nặng đến mức phải ngả người."
+      en: "Great for shoulder posture; never so heavy you have to lean back."
+    muscle_groups: [shoulders, back]
+    equipment: [cable]
+    difficulty: 2
+    measure: reps
+    easier: band_pull_apart
+    harder: null
+    media: { youtube_query: "cable face pull proper form" }
+    reviewed: false
+
+  - id: band_pull_apart
+    name: { vi: "Kéo giãn dây kháng lực", en: "Band pull-apart" }
+    description:
+      vi: "Đứng thẳng, hai tay cầm dây kháng lực trước ngực, tay thẳng. Kéo căng dây sang hai bên đến khi dây chạm gần ngực, siết bả vai, rồi thu về chậm. Thở ra khi kéo."
+      en: "Stand tall holding a resistance band at chest height with straight arms. Pull the band apart until it nearly touches your chest, squeeze your shoulder blades, then return slowly. Exhale as you pull."
+    cues:
+      vi: ["Vai không nhún", "Tay gần thẳng", "Thu về có kiểm soát"]
+      en: ["Don't shrug", "Arms nearly straight", "Controlled return"]
+    safety:
+      vi: "Kiểm tra dây không bị rách trước khi tập; bài rất nhẹ, phù hợp khởi động."
+      en: "Check the band for tears first; very gentle, good as a warm-up."
+    muscle_groups: [back, shoulders]
+    equipment: [resistance_band]
+    difficulty: 1
+    measure: reps
+    easier: null
+    harder: face_pull_cable
+    media: { youtube_query: "band pull apart proper form" }
+    reviewed: false
+
+  - id: negative_pull_up
+    name: { vi: "Hít xà hạ chậm (Negative pull-up)", en: "Negative pull-up" }
+    description:
+      vi: "Bước lên bục để cằm vượt qua xà, hai tay nắm xà. Rời chân khỏi bục và hạ người xuống thật chậm trong 3–5 giây đến khi tay thẳng. Bước lại lên bục cho lần tiếp theo."
+      en: "Step up on a box so your chin is above the bar, hands gripping it. Take your feet off and lower yourself slowly over 3–5 seconds to straight arms. Step back up for the next rep."
+    cues:
+      vi: ["Hạ đều, không rơi tự do", "Vai không rút lên tai", "Gồng bụng"]
+      en: ["Lower evenly, don't drop", "Shoulders away from ears", "Brace your core"]
+    safety:
+      vi: "Gây đau cơ nhiều ngày sau; bắt đầu ít lần và không tập liên tục nhiều ngày."
+      en: "Causes significant soreness; start with few reps and don't train it on consecutive days."
+    muscle_groups: [back, biceps]
+    equipment: [pullup_bar]
+    difficulty: 3
+    measure: reps
+    easier: lat_pulldown
+    harder: pull_up
+    media: { youtube_query: "negative pull up eccentric beginner" }
+    reviewed: false
+
+  - id: pull_up
+    name: { vi: "Hít xà (Pull-up)", en: "Pull-up" }
+    description:
+      vi: "Treo người trên xà, tay rộng hơn vai một chút, lòng bàn tay hướng ra trước. Kéo người lên đến khi cằm qua xà, rồi hạ chậm đến khi tay thẳng. Thở ra khi kéo lên."
+      en: "Hang from the bar with hands slightly wider than shoulders, palms facing away. Pull up until your chin clears the bar, then lower slowly to straight arms. Exhale as you pull."
+    cues:
+      vi: ["Bắt đầu bằng kéo bả vai xuống", "Không đu người", "Hạ hết biên độ"]
+      en: ["Start by pulling your shoulder blades down", "No swinging", "Full range on the way down"]
+    safety:
+      vi: "Chỉ tập khi hạ chậm được 5 lần; người đau vai hoặc khuỷu nên giữ ở Kéo xô."
+      en: "Only once you can do 5 slow negatives; with shoulder or elbow pain stay with lat pulldowns."
+    muscle_groups: [back, biceps, core]
+    equipment: [pullup_bar]
+    difficulty: 5
+    measure: reps
+    easier: negative_pull_up
+    harder: null
+    media: { youtube_query: "pull up proper form" }
+    reviewed: false
+
+  # ───────────────────────── CORE ─────────────────────────
+
+  - id: knee_plank
+    name: { vi: "Plank quỳ gối", en: "Kneeling plank" }
+    description:
+      vi: "Chống hai cẳng tay xuống thảm, khuỷu tay ngay dưới vai, hai gối chạm sàn. Giữ người thẳng từ đầu đến gối, siết bụng và mông. Thở đều, không nín thở."
+      en: "Forearms on the mat with elbows under shoulders, knees down. Hold a straight line from head to knees, squeezing abs and glutes. Breathe steadily; don't hold your breath."
+    cues:
+      vi: ["Không võng hông", "Không chổng mông", "Mắt nhìn xuống sàn"]
+      en: ["Don't let your hips sag", "Don't pike your hips", "Look at the floor"]
+    safety:
+      vi: "Người cao huyết áp nên giữ ngắn và thở đều; dừng nếu đau lưng dưới."
+      en: "With high blood pressure, keep holds short and breathe; stop if your lower back hurts."
+    muscle_groups: [core]
+    equipment: [mat]
+    difficulty: 1
+    measure: time
+    easier: null
+    harder: plank
+    media: { youtube_query: "kneeling plank proper form" }
+    reviewed: false
+
+  - id: plank
+    name: { vi: "Plank", en: "Plank" }
+    description:
+      vi: "Chống hai cẳng tay và mũi chân, khuỷu tay ngay dưới vai. Giữ người thẳng từ đầu đến gót, siết bụng và mông trong thời gian quy định. Thở đều."
+      en: "Support yourself on forearms and toes, elbows under shoulders. Hold a straight line from head to heels, squeezing abs and glutes for the set time. Breathe steadily."
+    cues:
+      vi: ["Siết mông để hông không võng", "Kéo rốn vào", "Cổ thẳng hàng với lưng"]
+      en: ["Squeeze glutes so your hips don't sag", "Pull your belly button in", "Neck in line with your spine"]
+    safety:
+      vi: "Dừng khi hông bắt đầu võng; giữ đúng tư thế quan trọng hơn giữ lâu."
+      en: "Stop when your hips start to sag; good form beats long holds."
+    muscle_groups: [core]
+    equipment: [mat]
+    difficulty: 2
+    measure: time
+    easier: knee_plank
+    harder: mountain_climber
+    media: { youtube_query: "plank proper form" }
+    reviewed: false
+
+  - id: side_plank_knee
+    name: { vi: "Plank nghiêng quỳ gối", en: "Kneeling side plank" }
+    description:
+      vi: "Nằm nghiêng, chống cẳng tay dưới vai, gập hai gối. Nâng hông lên để thân thẳng từ đầu đến gối, giữ trong thời gian quy định rồi đổi bên. Thời gian tính cho mỗi bên."
+      en: "Lie on your side, forearm under your shoulder, knees bent. Lift your hips so you form a line from head to knees, hold for the set time, then switch. Time is per side."
+    cues:
+      vi: ["Hông đẩy lên, không xệ", "Vai không rút lên tai", "Thở đều"]
+      en: ["Hips up, don't sag", "Shoulder away from your ear", "Breathe steadily"]
+    safety:
+      vi: "Người đau vai bên chống nên giảm thời gian; tư thế nhẹ cho lưng."
+      en: "Shorten holds if the supporting shoulder hurts; gentle on the back."
+    muscle_groups: [core]
+    equipment: [mat]
+    difficulty: 1
+    measure: time
+    easier: null
+    harder: side_plank
+    media: { youtube_query: "kneeling side plank form" }
+    reviewed: false
+
+  - id: side_plank
+    name: { vi: "Plank nghiêng", en: "Side plank" }
+    description:
+      vi: "Nằm nghiêng, chống cẳng tay dưới vai, hai chân duỗi thẳng chồng lên nhau. Nâng hông lên để người thẳng từ đầu đến gót, giữ rồi đổi bên. Thời gian tính cho mỗi bên."
+      en: "Lie on your side, forearm under your shoulder, legs straight and stacked. Lift your hips to make a straight line, hold, then switch. Time is per side."
+    cues:
+      vi: ["Người thẳng như tấm ván", "Hông không xoay về trước", "Thở đều"]
+      en: ["Body straight like a board", "Hips don't rotate forward", "Breathe steadily"]
+    safety:
+      vi: "Nếu không giữ được hông, quay lại bản quỳ gối."
+      en: "If your hips drop, go back to the kneeling version."
+    muscle_groups: [core]
+    equipment: [mat]
+    difficulty: 3
+    measure: time
+    easier: side_plank_knee
+    harder: null
+    media: { youtube_query: "side plank proper form" }
+    reviewed: false
+
+  - id: dead_bug
+    name: { vi: "Dead bug", en: "Dead bug" }
+    description:
+      vi: "Nằm ngửa, hai tay giơ thẳng lên trần, hông và gối gập 90 độ. Ép lưng dưới xuống sàn, từ từ duỗi một tay và chân đối diện ra xa rồi thu về, đổi bên. Thở ra khi duỗi."
+      en: "Lie on your back, arms to the ceiling, hips and knees at 90 degrees. Press your lower back into the floor and slowly extend the opposite arm and leg, then return and switch. Exhale as you extend."
+    cues:
+      vi: ["Lưng dưới luôn chạm sàn", "Chậm và có kiểm soát", "Chỉ duỗi xa đến mức lưng không cong"]
+      en: ["Lower back stays down", "Slow and controlled", "Only reach as far as your back stays flat"]
+    safety:
+      vi: "Bài an toàn cho lưng; người mang thai từ tam cá nguyệt thứ hai nên thay bằng Bird dog."
+      en: "Back-friendly; from the second trimester of pregnancy, swap for bird dogs."
+    muscle_groups: [core]
+    equipment: [mat]
+    difficulty: 1
+    measure: reps_per_side
+    easier: null
+    harder: reverse_crunch
+    media: { youtube_query: "dead bug exercise proper form" }
+    reviewed: false
+
+  - id: bird_dog
+    name: { vi: "Bird dog", en: "Bird dog" }
+    description:
+      vi: "Quỳ bốn điểm, tay dưới vai, gối dưới hông. Từ từ duỗi một tay ra trước và chân đối diện ra sau đến khi thẳng hàng với thân, giữ 1–2 giây rồi thu về, đổi bên. Thở đều."
+      en: "On all fours, hands under shoulders, knees under hips. Slowly reach one arm forward and the opposite leg back until level with your torso, hold 1–2 seconds, then return and switch. Breathe steadily."
+    cues:
+      vi: ["Hông không xoay", "Lưng phẳng như mặt bàn", "Duỗi xa chứ không nâng cao"]
+      en: ["Hips stay level", "Back flat like a table", "Reach long, not high"]
+    safety:
+      vi: "Bài nhẹ, thân thiện với lưng; lót thảm dưới gối."
+      en: "Gentle and back-friendly; pad your knees."
+    muscle_groups: [core, glutes, back]
+    equipment: [mat]
+    difficulty: 1
+    measure: reps_per_side
+    easier: null
+    harder: null
+    media: { youtube_query: "bird dog exercise proper form" }
+    reviewed: false
+
+  - id: reverse_crunch
+    name: { vi: "Gập bụng ngược (Reverse crunch)", en: "Reverse crunch" }
+    description:
+      vi: "Nằm ngửa, tay đặt dọc thân, hông và gối gập 90 độ. Siết bụng cuộn hông lên khỏi sàn đưa gối về phía ngực, rồi hạ chậm. Thở ra khi cuộn lên."
+      en: "Lie on your back with arms by your sides, hips and knees at 90 degrees. Use your abs to curl your hips off the floor, bringing knees toward your chest, then lower slowly. Exhale as you curl."
+    cues:
+      vi: ["Dùng bụng, không vung chân", "Hạ chậm", "Đầu và vai nằm yên"]
+      en: ["Use your abs, don't swing your legs", "Lower slowly", "Head and shoulders stay down"]
+    safety:
+      vi: "Người thoát vị đĩa đệm nên hỏi bác sĩ; không phù hợp phụ nữ mang thai."
+      en: "With a disc herniation, ask a doctor first; not for pregnancy."
+    muscle_groups: [core]
+    equipment: [mat]
+    difficulty: 2
+    measure: reps
+    easier: dead_bug
+    harder: hanging_knee_raise
+    media: { youtube_query: "reverse crunch proper form" }
+    reviewed: false
+
+  - id: hanging_knee_raise
+    name: { vi: "Treo xà co gối", en: "Hanging knee raise" }
+    description:
+      vi: "Treo người trên xà, vai hơi kéo xuống. Siết bụng co hai gối lên ngang hông hoặc cao hơn, rồi hạ chậm không đu người. Thở ra khi co gối."
+      en: "Hang from the bar with shoulders slightly pulled down. Brace and raise your knees to hip height or higher, then lower slowly without swinging. Exhale as you raise."
+    cues:
+      vi: ["Không đu người", "Cuộn nhẹ hông ở điểm cao", "Hạ chậm"]
+      en: ["No swinging", "Tilt your pelvis up at the top", "Lower slowly"]
+    safety:
+      vi: "Cần đủ lực tay để treo; người đau vai nên thay bằng Gập bụng ngược."
+      en: "Needs enough grip to hang; with shoulder pain, use reverse crunches instead."
+    muscle_groups: [core]
+    equipment: [pullup_bar]
+    difficulty: 4
+    measure: reps
+    easier: reverse_crunch
+    harder: null
+    media: { youtube_query: "hanging knee raise proper form" }
+    reviewed: false
+
+  - id: pallof_press_cable
+    name: { vi: "Pallof press", en: "Cable Pallof press" }
+    description:
+      vi: "Đứng nghiêng với máy cáp, ròng rọc ngang ngực, hai tay cầm tay cầm sát ngực. Đẩy thẳng tay ra trước và giữ người không bị kéo xoay, rồi thu về. Làm hết một bên rồi đổi bên."
+      en: "Stand side-on to a cable at chest height, holding the handle at your chest. Press straight out and resist being twisted, then bring it back. Finish one side, then switch."
+    cues:
+      vi: ["Hông và vai hướng thẳng", "Gồng bụng chống xoay", "Đứng vững, gối hơi chùng"]
+      en: ["Hips and shoulders face forward", "Brace to resist rotation", "Stable stance, soft knees"]
+    safety:
+      vi: "Bài chống xoay an toàn cho lưng; bắt đầu tạ nhẹ."
+      en: "Anti-rotation work that's kind to the back; start light."
+    muscle_groups: [core]
+    equipment: [cable]
+    difficulty: 2
+    measure: reps_per_side
+    easier: dead_bug
+    harder: null
+    media: { youtube_query: "pallof press cable form" }
+    reviewed: false
+
+  - id: farmer_carry_dumbbell
+    name: { vi: "Xách tạ đi bộ (Farmer carry)", en: "Dumbbell farmer carry" }
+    description:
+      vi: "Hai tay xách hai tạ đơn nặng vừa phải buông dọc thân. Đứng thẳng, gồng bụng và đi bộ những bước ngắn đều trong thời gian quy định. Thở đều."
+      en: "Hold a moderately heavy dumbbell in each hand at your sides. Stand tall, brace and walk with short, even steps for the set time. Breathe steadily."
+    cues:
+      vi: ["Vai kéo về sau, không nhún", "Không nghiêng người", "Bước ngắn, đều"]
+      en: ["Shoulders back, not shrugged", "Don't lean to either side", "Short, even steps"]
+    safety:
+      vi: "Đặt tạ xuống bằng cách gập gối, không cúi lưng; đi ở chỗ không vướng."
+      en: "Set the weights down by bending your knees, not your back; walk in a clear space."
+    muscle_groups: [core, full_body]
+    equipment: [dumbbell]
+    difficulty: 2
+    measure: time
+    easier: null
+    harder: null
+    media: { youtube_query: "farmer carry dumbbell form" }
+    reviewed: false
+
+  # ───────────────────────── CARDIO / CONDITIONING ─────────────────────────
+
+  - id: marching_in_place
+    name: { vi: "Đi bộ tại chỗ nâng gối", en: "Marching in place" }
+    description:
+      vi: "Đứng thẳng, lần lượt nâng từng gối lên ngang hông như đi đều, tay đánh tự nhiên. Giữ nhịp đều, có thể tăng tốc nhẹ khi đã quen. Thở đều bằng mũi và miệng."
+      en: "Stand tall and lift one knee at a time toward hip height as if marching, arms swinging naturally. Keep a steady rhythm and speed up slightly when ready. Breathe steadily."
+    cues:
+      vi: ["Thân thẳng", "Đáp chân nhẹ nhàng", "Vẫn nói chuyện được là vừa sức"]
+      en: ["Upright torso", "Land softly", "You should still be able to talk"]
+    safety:
+      vi: "Không va đập, phù hợp người mới và người cần tập nhẹ; vịn ghế nếu yếu thăng bằng."
+      en: "No impact; suitable for beginners and light training; hold a chair if balance is poor."
+    muscle_groups: [cardio]
+    equipment: [none]
+    difficulty: 1
+    measure: time
+    easier: null
+    harder: step_jack
+    media: { youtube_query: "marching in place cardio low impact" }
+    reviewed: false
+
+  - id: step_jack
+    name: { vi: "Jumping jack không nhảy", en: "Step jack (low-impact jumping jack)" }
+    description:
+      vi: "Đứng thẳng, bước một chân sang ngang đồng thời giơ hai tay lên qua đầu, rồi thu về và đổi chân. Giữ nhịp nhanh vừa phải, không bật nhảy. Thở đều."
+      en: "Stand tall, step one foot out to the side while raising both arms overhead, then return and switch sides. Keep a brisk pace without jumping. Breathe steadily."
+    cues:
+      vi: ["Không nhảy", "Tay giơ cao hết mức thoải mái", "Nhịp đều"]
+      en: ["No jumping", "Raise your arms as high as is comfortable", "Steady rhythm"]
+    safety:
+      vi: "Phiên bản không va đập, an toàn cho gối; người đau vai có thể chỉ giơ tay ngang vai."
+      en: "Low-impact and knee-friendly; with shoulder pain, raise arms only to shoulder height."
+    muscle_groups: [cardio, full_body]
+    equipment: [none]
+    difficulty: 1
+    measure: time
+    easier: marching_in_place
+    harder: burpee_step_back
+    media: { youtube_query: "low impact jumping jack step jack" }
+    reviewed: false
+
+  - id: burpee_step_back
+    name: { vi: "Burpee bước lùi (không nhảy)", en: "Step-back burpee" }
+    description:
+      vi: "Từ tư thế đứng, ngồi xuống chống hai tay xuống sàn, lần lượt bước từng chân ra sau thành tư thế hít đất. Bước từng chân về lại, rồi đứng thẳng lên. Không bật nhảy."
+      en: "From standing, squat and place your hands on the floor, then step one foot at a time back into a plank. Step back in one foot at a time and stand up. No jumping."
+    cues:
+      vi: ["Lưng thẳng khi cúi xuống", "Không võng hông ở tư thế plank", "Nhịp đều, không vội"]
+      en: ["Flat back as you bend down", "Hips level in the plank", "Steady pace, don't rush"]
+    safety:
+      vi: "Người cao huyết áp hoặc hay chóng mặt nên đứng lên chậm; không phù hợp nhóm tập nhẹ."
+      en: "With high blood pressure or dizziness, stand up slowly; not for light-intensity users."
+    muscle_groups: [full_body, cardio]
+    equipment: [none]
+    difficulty: 3
+    measure: reps
+    easier: step_jack
+    harder: burpee
+    media: { youtube_query: "step back burpee low impact" }
+    reviewed: false
+
+  - id: burpee
+    name: { vi: "Burpee", en: "Burpee" }
+    description:
+      vi: "Từ tư thế đứng, ngồi xuống chống tay, bật hai chân ra sau thành tư thế hít đất. Bật chân về lại rồi nhảy nhẹ lên với hai tay giơ qua đầu. Tiếp đất nhẹ nhàng bằng cả bàn chân."
+      en: "From standing, squat, place your hands down and jump your feet back to a plank. Jump your feet back in, then hop up with arms overhead. Land softly through the whole foot."
+    cues:
+      vi: ["Tiếp đất nhẹ", "Giữ người thẳng ở tư thế plank", "Chậm lại nếu kỹ thuật xấu đi"]
+      en: ["Soft landings", "Straight body in the plank", "Slow down if form slips"]
+    safety:
+      vi: "Bài va đập cao, chỉ dành cho người đã quen tập; người đau gối, cổ chân, thừa cân nhiều nên dùng bản bước lùi."
+      en: "High-impact, for experienced trainees only; with knee/ankle pain or significant excess weight, use the step-back version."
+    muscle_groups: [full_body, cardio]
+    equipment: [none]
+    difficulty: 4
+    measure: reps
+    easier: burpee_step_back
+    harder: null
+    media: { youtube_query: "burpee proper form" }
+    reviewed: false
+
+  - id: mountain_climber
+    name: { vi: "Leo núi (Mountain climber)", en: "Mountain climber" }
+    description:
+      vi: "Vào tư thế hít đất, tay ngay dưới vai. Lần lượt kéo từng gối về phía ngực theo nhịp đều, giữ hông thấp và ổn định. Thở đều theo nhịp."
+      en: "Start in a push-up position with hands under shoulders. Drive one knee at a time toward your chest at a steady rhythm, keeping your hips low and stable. Breathe with the rhythm."
+    cues:
+      vi: ["Hông không nhấp nhô", "Vai ngay trên cổ tay", "Bắt đầu chậm rồi mới nhanh"]
+      en: ["Hips don't bounce", "Shoulders over wrists", "Start slow, then speed up"]
+    safety:
+      vi: "Người đau cổ tay hoặc vai nên làm chậm hoặc chống tay lên ghế cho nhẹ hơn."
+      en: "With wrist or shoulder pain, go slower or put your hands on a bench."
+    muscle_groups: [core, cardio, shoulders]
+    equipment: [none]
+    difficulty: 3
+    measure: time
+    easier: plank
+    harder: burpee
+    media: { youtube_query: "mountain climber proper form" }
+    reviewed: false
+
+  - id: stationary_bike
+    name: { vi: "Đạp xe tại chỗ", en: "Stationary bike" }
+    description:
+      vi: "Chỉnh yên sao cho gối hơi cong khi bàn đạp ở điểm thấp nhất. Đạp với mức kháng lực vừa phải, giữ nhịp đều trong thời gian quy định. Mức đúng là thở nhanh nhưng vẫn nói được câu ngắn."
+      en: "Set the seat so your knee is slightly bent at the bottom of the stroke. Pedal at moderate resistance with a steady cadence for the set time. You should breathe harder but still manage short sentences."
+    cues:
+      vi: ["Lưng thẳng, vai thả lỏng", "Nhịp đều", "Tăng kháng lực từ từ"]
+      en: ["Back straight, shoulders relaxed", "Steady cadence", "Increase resistance gradually"]
+    safety:
+      vi: "Không va đập, phù hợp người thừa cân và người đau gối nhẹ; dừng nếu tức ngực hoặc chóng mặt."
+      en: "No impact; good for heavier users and mild knee pain; stop if you feel chest pain or dizziness."
+    muscle_groups: [cardio, quads]
+    equipment: [machine]
+    difficulty: 1
+    measure: time
+    easier: null
+    harder: null
+    media: { youtube_query: "stationary bike setup seat height" }
+    reviewed: false
+
+  - id: treadmill_incline_walk
+    name: { vi: "Đi bộ dốc trên máy chạy", en: "Treadmill incline walk" }
+    description:
+      vi: "Đặt máy chạy ở độ dốc vừa phải và tốc độ đi bộ nhanh. Đi tự nhiên, tay đánh theo nhịp, hạn chế bám tay vịn. Mức đúng là thở nhanh nhưng vẫn nói được câu ngắn."
+      en: "Set the treadmill to a moderate incline at a brisk walking speed. Walk naturally with arms swinging, minimising handrail use. You should breathe harder but still manage short sentences."
+    cues:
+      vi: ["Thân thẳng, không đổ người", "Chỉ vịn tay nếu cần thăng bằng", "Tăng dốc từ từ"]
+      en: ["Stand tall, don't lean forward", "Hold rails only for balance", "Increase incline gradually"]
+    safety:
+      vi: "Kẹp dây an toàn vào áo; bắt đầu dốc thấp nếu đau bắp chân hoặc gân Achilles."
+      en: "Clip the safety key to your clothing; start with a low incline if calves or Achilles are sore."
+    muscle_groups: [cardio, glutes, calves]
+    equipment: [machine]
+    difficulty: 1
+    measure: time
+    easier: null
+    harder: null
+    media: { youtube_query: "treadmill incline walk proper form" }
+    reviewed: false

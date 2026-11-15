@@ -1,0 +1,60 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: home_bodyweight_push_pull_legs_5x_advanced
+name: { vi: "Đẩy / Kéo / Chân + Trên / Dưới tại nhà – 5 buổi", en: "Home push/pull/legs + upper/lower – 5 days" }
+summary: { vi: "5 buổi/tuần: Đẩy, Kéo, Chân rồi Thân trên, Thân dưới; có bài thể lực cuối buổi.", en: "5 days a week: push, pull, legs, then upper and lower, with conditioning finishers." }
+goals: [muscle_gain, fat_loss, fitness]
+level: advanced
+location: home_bodyweight
+sessions_per_week: 5
+session_minutes: 45
+split: push_pull_legs
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Đẩy (ngực, vai, tay sau)", en: "Push (chest, shoulders, triceps)" }
+    exercises:
+      - { exercise: decline_push_up, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: pike_push_up, sets: 3, reps: 8, rest_sec: 90 }
+      - { exercise: push_up, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: diamond_push_up, sets: 2, reps: 10, rest_sec: 60 }
+      - { exercise: plank, sets: 3, duration_sec: 45, rest_sec: 45 }
+  - code: B
+    title: { vi: "Kéo (lưng, vai sau, tay trước)", en: "Pull (back, rear delts, biceps)" }
+    exercises:
+      - { exercise: table_row, sets: 4, reps: 10, rest_sec: 75 }
+      - { exercise: doorway_row, sets: 3, reps: 15, rest_sec: 60 }
+      - { exercise: reverse_snow_angel, sets: 3, reps: 12, rest_sec: 45 }
+      - { exercise: prone_y_raise, sets: 3, reps: 12, rest_sec: 30 }
+      - { exercise: reverse_crunch, sets: 3, reps: 12, rest_sec: 45 }
+  - code: C
+    title: { vi: "Chân và mông", en: "Legs and glutes" }
+    exercises:
+      - { exercise: bulgarian_split_squat_bodyweight, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: single_leg_rdl_bodyweight, sets: 3, reps: 10, rest_sec: 60 }
+      - { exercise: single_leg_glute_bridge, sets: 3, reps: 12, rest_sec: 45 }
+      - { exercise: calf_raise_bodyweight, sets: 3, reps: 20, rest_sec: 30 }
+      - { exercise: burpee, sets: 3, reps: 8, rest_sec: 60 }
+  - code: D
+    title: { vi: "Thân trên", en: "Upper body" }
+    exercises:
+      - { exercise: push_up, sets: 3, reps: 15, rest_sec: 60 }
+      - { exercise: table_row, sets: 3, reps: 12, rest_sec: 75 }
+      - { exercise: pike_push_up, sets: 2, reps: 8, rest_sec: 75 }
+      - { exercise: reverse_snow_angel, sets: 2, reps: 12, rest_sec: 45 }
+      - { exercise: side_plank, sets: 2, duration_sec: 40, rest_sec: 30 }
+      - { exercise: mountain_climber, sets: 3, duration_sec: 30, rest_sec: 45 }
+  - code: E
+    title: { vi: "Thân dưới", en: "Lower body" }
+    exercises:
+      - { exercise: reverse_lunge_bodyweight, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: squat_bodyweight, sets: 3, reps: 20, rest_sec: 60 }
+      - { exercise: single_leg_glute_bridge, sets: 3, reps: 12, rest_sec: 45 }
+      - { exercise: wall_sit, sets: 2, duration_sec: 45, rest_sec: 45 }
+      - { exercise: dead_bug, sets: 3, reps: 10, rest_sec: 30 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 1, reps_delta: 1, duration_delta_sec: 10 }
+  - { week: 4, sets_delta: -1, reps_delta: -2, duration_delta_sec: 0 }
+reviewed: false

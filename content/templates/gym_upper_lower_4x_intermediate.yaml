@@ -1,0 +1,55 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: gym_upper_lower_4x_intermediate
+name: { vi: "Thân trên / thân dưới ở gym – 4 buổi", en: "Gym upper/lower – 4 days" }
+summary: { vi: "4 buổi/tuần chia trên – dưới, có Squat với đòn trong khung an toàn, kèm cardio nhẹ.", en: "4 days a week upper/lower, including rack-protected barbell squats and light cardio." }
+goals: [muscle_gain, fat_loss]
+level: intermediate
+location: gym
+sessions_per_week: 4
+session_minutes: 60
+split: upper_lower
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Thân trên", en: "Upper body" }
+    exercises:
+      - { exercise: bench_press_dumbbell, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: lat_pulldown, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: seated_shoulder_press_dumbbell, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: seated_cable_row, sets: 3, reps: 12, rest_sec: 75 }
+      - { exercise: face_pull_cable, sets: 2, reps: 15, rest_sec: 45 }
+      - { exercise: triceps_pushdown_cable, sets: 2, reps: 12, rest_sec: 45 }
+  - code: B
+    title: { vi: "Thân dưới", en: "Lower body" }
+    exercises:
+      - { exercise: back_squat_barbell, sets: 3, reps: 8, rest_sec: 120 }
+      - { exercise: rdl_dumbbell, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: leg_press, sets: 2, reps: 12, rest_sec: 90 }
+      - { exercise: leg_curl_machine, sets: 2, reps: 12, rest_sec: 60 }
+      - { exercise: calf_raise_bodyweight, sets: 2, reps: 15, rest_sec: 30 }
+      - { exercise: dead_bug, sets: 2, reps: 8, rest_sec: 30 }
+  - code: C
+    title: { vi: "Thân trên", en: "Upper body" }
+    exercises:
+      - { exercise: seated_cable_row, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: chest_press_machine, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: negative_pull_up, sets: 3, reps: 4, rest_sec: 90 }
+      - { exercise: lateral_raise_dumbbell, sets: 3, reps: 12, rest_sec: 45 }
+      - { exercise: biceps_curl_dumbbell, sets: 2, reps: 12, rest_sec: 45 }
+      - { exercise: plank, sets: 3, duration_sec: 40, rest_sec: 45 }
+  - code: D
+    title: { vi: "Thân dưới", en: "Lower body" }
+    exercises:
+      - { exercise: leg_press, sets: 3, reps: 12, rest_sec: 90 }
+      - { exercise: split_squat_dumbbell, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: glute_bridge_dumbbell, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: leg_curl_machine, sets: 2, reps: 12, rest_sec: 60 }
+      - { exercise: pallof_press_cable, sets: 2, reps: 10, rest_sec: 45 }
+      - { exercise: stationary_bike, sets: 2, duration_sec: 300, rest_sec: 30 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 1, reps_delta: 0, duration_delta_sec: 5 }
+  - { week: 4, sets_delta: -1, reps_delta: -1, duration_delta_sec: 0 }
+reviewed: false

@@ -1,0 +1,44 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: gym_full_body_3x_beginner
+name: { vi: "Toàn thân ở gym + cardio – 3 buổi", en: "Gym full body + cardio – 3 days" }
+summary: { vi: "3 buổi/tuần: tập máy toàn thân rồi đi bộ dốc hoặc đạp xe để đốt thêm năng lượng.", en: "3 days a week: full-body machines, then incline walking or cycling for extra burn." }
+goals: [fat_loss, fitness, muscle_gain]
+level: beginner
+location: gym
+sessions_per_week: 3
+session_minutes: 45
+split: full_body
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: leg_press, sets: 2, reps: 12, rest_sec: 75 }
+      - { exercise: chest_press_machine, sets: 2, reps: 12, rest_sec: 60 }
+      - { exercise: lat_pulldown, sets: 2, reps: 12, rest_sec: 60 }
+      - { exercise: dead_bug, sets: 2, reps: 6, rest_sec: 45 }
+      - { exercise: treadmill_incline_walk, sets: 1, duration_sec: 600, rest_sec: 30 }
+  - code: B
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: goblet_squat, sets: 2, reps: 10, rest_sec: 75 }
+      - { exercise: seated_cable_row, sets: 2, reps: 12, rest_sec: 60 }
+      - { exercise: incline_push_up, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: leg_curl_machine, sets: 2, reps: 12, rest_sec: 60 }
+      - { exercise: stationary_bike, sets: 1, duration_sec: 600, rest_sec: 30 }
+  - code: C
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: leg_press, sets: 2, reps: 12, rest_sec: 75 }
+      - { exercise: seated_shoulder_press_dumbbell, sets: 2, reps: 10, rest_sec: 60 }
+      - { exercise: one_arm_row_dumbbell, sets: 2, reps: 10, rest_sec: 60 }
+      - { exercise: glute_bridge, sets: 2, reps: 12, rest_sec: 45 }
+      - { exercise: knee_plank, sets: 2, duration_sec: 25, rest_sec: 45 }
+      - { exercise: treadmill_incline_walk, sets: 1, duration_sec: 600, rest_sec: 30 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 0, reps_delta: 2, duration_delta_sec: 10 }
+  - { week: 4, sets_delta: 0, reps_delta: 2, duration_delta_sec: 10 }
+reviewed: false

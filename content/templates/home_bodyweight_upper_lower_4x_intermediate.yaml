@@ -1,0 +1,55 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: home_bodyweight_upper_lower_4x_intermediate
+name: { vi: "Thân trên / thân dưới tại nhà – 4 buổi", en: "Home upper/lower – 4 days" }
+summary: { vi: "4 buổi/tuần chia thân trên và thân dưới, thêm khối lượng cho từng nhóm cơ.", en: "4 days a week split into upper and lower, more volume per muscle group." }
+goals: [muscle_gain, fitness]
+level: intermediate
+location: home_bodyweight
+sessions_per_week: 4
+session_minutes: 45
+split: upper_lower
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Thân trên", en: "Upper body" }
+    exercises:
+      - { exercise: push_up, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: table_row, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: incline_push_up, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: doorway_row, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: prone_y_raise, sets: 2, reps: 12, rest_sec: 45 }
+      - { exercise: plank, sets: 3, duration_sec: 30, rest_sec: 45 }
+  - code: B
+    title: { vi: "Thân dưới", en: "Lower body" }
+    exercises:
+      - { exercise: reverse_lunge_bodyweight, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: single_leg_rdl_bodyweight, sets: 3, reps: 8, rest_sec: 60 }
+      - { exercise: single_leg_glute_bridge, sets: 3, reps: 10, rest_sec: 45 }
+      - { exercise: wall_sit, sets: 2, duration_sec: 30, rest_sec: 45 }
+      - { exercise: calf_raise_bodyweight, sets: 3, reps: 15, rest_sec: 30 }
+      - { exercise: dead_bug, sets: 3, reps: 8, rest_sec: 45 }
+  - code: C
+    title: { vi: "Thân trên", en: "Upper body" }
+    exercises:
+      - { exercise: table_row, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: push_up, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: reverse_snow_angel, sets: 3, reps: 10, rest_sec: 45 }
+      - { exercise: knee_push_up, sets: 2, reps: 15, rest_sec: 45 }
+      - { exercise: side_plank_knee, sets: 2, duration_sec: 30, rest_sec: 30 }
+      - { exercise: reverse_crunch, sets: 2, reps: 10, rest_sec: 45 }
+  - code: D
+    title: { vi: "Thân dưới", en: "Lower body" }
+    exercises:
+      - { exercise: split_squat_bodyweight, sets: 3, reps: 10, rest_sec: 60 }
+      - { exercise: step_up_bodyweight, sets: 3, reps: 10, rest_sec: 60 }
+      - { exercise: glute_bridge, sets: 3, reps: 15, rest_sec: 45 }
+      - { exercise: hip_hinge_bodyweight, sets: 2, reps: 12, rest_sec: 45 }
+      - { exercise: calf_raise_bodyweight, sets: 2, reps: 15, rest_sec: 30 }
+      - { exercise: bird_dog, sets: 2, reps: 8, rest_sec: 30 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 1, reps_delta: 0, duration_delta_sec: 5 }
+  - { week: 4, sets_delta: -1, reps_delta: -1, duration_delta_sec: 0 }
+reviewed: false

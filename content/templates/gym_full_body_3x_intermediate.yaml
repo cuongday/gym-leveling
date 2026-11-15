@@ -1,0 +1,46 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: gym_full_body_3x_intermediate
+name: { vi: "Toàn thân ở gym – 3 buổi", en: "Gym full body – 3 days" }
+summary: { vi: "3 buổi/tuần với tạ đơn, máy và cáp; mỗi buổi đủ các nhóm cơ chính.", en: "3 days a week with dumbbells, machines and cables; every main muscle group each day." }
+goals: [muscle_gain, maintain, fitness]
+level: intermediate
+location: gym
+sessions_per_week: 3
+session_minutes: 60
+split: full_body
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: goblet_squat, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: bench_press_dumbbell, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: lat_pulldown, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: rdl_dumbbell, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: face_pull_cable, sets: 2, reps: 15, rest_sec: 45 }
+      - { exercise: plank, sets: 3, duration_sec: 40, rest_sec: 45 }
+  - code: B
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: leg_press, sets: 3, reps: 12, rest_sec: 90 }
+      - { exercise: seated_shoulder_press_dumbbell, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: seated_cable_row, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: leg_curl_machine, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: triceps_pushdown_cable, sets: 2, reps: 12, rest_sec: 45 }
+      - { exercise: pallof_press_cable, sets: 2, reps: 10, rest_sec: 45 }
+  - code: C
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: split_squat_dumbbell, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: chest_press_machine, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: one_arm_row_dumbbell, sets: 3, reps: 10, rest_sec: 60 }
+      - { exercise: glute_bridge_dumbbell, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: biceps_curl_dumbbell, sets: 2, reps: 12, rest_sec: 45 }
+      - { exercise: treadmill_incline_walk, sets: 2, duration_sec: 300, rest_sec: 30 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 1, reps_delta: 0, duration_delta_sec: 5 }
+  - { week: 4, sets_delta: -1, reps_delta: -1, duration_delta_sec: 0 }
+reviewed: false

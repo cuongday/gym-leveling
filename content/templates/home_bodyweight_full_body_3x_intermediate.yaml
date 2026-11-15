@@ -1,0 +1,46 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: home_bodyweight_full_body_3x_intermediate
+name: { vi: "Toàn thân tại nhà – 3 buổi", en: "Home full body – 3 days" }
+summary: { vi: "3 buổi/tuần, tăng sức mạnh và sức bền chỉ với trọng lượng cơ thể.", en: "3 days a week, build strength and endurance with bodyweight only." }
+goals: [fitness, maintain, fat_loss]
+level: intermediate
+location: home_bodyweight
+sessions_per_week: 3
+session_minutes: 45
+split: full_body
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: reverse_lunge_bodyweight, sets: 3, reps: 8, rest_sec: 60 }
+      - { exercise: push_up, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: table_row, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: single_leg_glute_bridge, sets: 3, reps: 8, rest_sec: 45 }
+      - { exercise: plank, sets: 3, duration_sec: 30, rest_sec: 45 }
+      - { exercise: burpee_step_back, sets: 2, reps: 8, rest_sec: 60 }
+  - code: B
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: squat_bodyweight, sets: 3, reps: 15, rest_sec: 60 }
+      - { exercise: incline_push_up, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: doorway_row, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: single_leg_rdl_bodyweight, sets: 3, reps: 8, rest_sec: 45 }
+      - { exercise: side_plank_knee, sets: 2, duration_sec: 25, rest_sec: 30 }
+      - { exercise: mountain_climber, sets: 2, duration_sec: 30, rest_sec: 45 }
+  - code: C
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: split_squat_bodyweight, sets: 3, reps: 10, rest_sec: 60 }
+      - { exercise: push_up, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: table_row, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: reverse_snow_angel, sets: 2, reps: 10, rest_sec: 45 }
+      - { exercise: reverse_crunch, sets: 3, reps: 10, rest_sec: 45 }
+      - { exercise: calf_raise_bodyweight, sets: 2, reps: 15, rest_sec: 30 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 1, reps_delta: 0, duration_delta_sec: 5 }
+  - { week: 4, sets_delta: -1, reps_delta: -1, duration_delta_sec: 0 }
+reviewed: false

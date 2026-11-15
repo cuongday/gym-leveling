@@ -1,0 +1,67 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: home_dumbbell_push_pull_legs_6x_advanced
+name: { vi: "Đẩy / Kéo / Chân với tạ đơn – 6 buổi", en: "Dumbbell push/pull/legs – 6 days" }
+summary: { vi: "6 buổi/tuần, mỗi nhóm cơ tập 2 lần, buổi ngắn 45 phút; cần ngủ và ăn đủ để hồi phục.", en: "6 days a week, each muscle twice, short 45-minute days; needs good sleep and food to recover." }
+goals: [muscle_gain]
+level: advanced
+location: home_dumbbell
+sessions_per_week: 6
+session_minutes: 45
+split: push_pull_legs
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Đẩy (ngực, vai, tay sau)", en: "Push (chest, shoulders, triceps)" }
+    exercises:
+      - { exercise: floor_press_dumbbell, sets: 4, reps: 10, rest_sec: 90 }
+      - { exercise: shoulder_press_dumbbell, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: decline_push_up, sets: 3, reps: 10, rest_sec: 60 }
+      - { exercise: lateral_raise_dumbbell, sets: 3, reps: 15, rest_sec: 45 }
+      - { exercise: overhead_triceps_extension_dumbbell, sets: 3, reps: 12, rest_sec: 45 }
+  - code: B
+    title: { vi: "Kéo (lưng, vai sau, tay trước)", en: "Pull (back, rear delts, biceps)" }
+    exercises:
+      - { exercise: bent_over_row_dumbbell, sets: 4, reps: 10, rest_sec: 90 }
+      - { exercise: one_arm_row_dumbbell, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: rear_delt_fly_dumbbell, sets: 3, reps: 15, rest_sec: 45 }
+      - { exercise: biceps_curl_dumbbell, sets: 3, reps: 12, rest_sec: 45 }
+      - { exercise: reverse_crunch, sets: 3, reps: 12, rest_sec: 45 }
+  - code: C
+    title: { vi: "Chân và mông", en: "Legs and glutes" }
+    exercises:
+      - { exercise: bulgarian_split_squat_dumbbell, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: rdl_dumbbell, sets: 4, reps: 10, rest_sec: 90 }
+      - { exercise: glute_bridge_dumbbell, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: calf_raise_bodyweight, sets: 3, reps: 20, rest_sec: 30 }
+      - { exercise: plank, sets: 3, duration_sec: 45, rest_sec: 45 }
+  - code: D
+    title: { vi: "Đẩy (ngực, vai, tay sau)", en: "Push (chest, shoulders, triceps)" }
+    exercises:
+      - { exercise: seated_shoulder_press_dumbbell, sets: 4, reps: 10, rest_sec: 90 }
+      - { exercise: floor_press_dumbbell, sets: 3, reps: 12, rest_sec: 75 }
+      - { exercise: push_up, sets: 3, reps: 15, rest_sec: 60 }
+      - { exercise: lateral_raise_dumbbell, sets: 3, reps: 15, rest_sec: 45 }
+      - { exercise: diamond_push_up, sets: 2, reps: 10, rest_sec: 60 }
+  - code: E
+    title: { vi: "Kéo (lưng, vai sau, tay trước)", en: "Pull (back, rear delts, biceps)" }
+    exercises:
+      - { exercise: one_arm_row_dumbbell, sets: 4, reps: 10, rest_sec: 75 }
+      - { exercise: bent_over_row_dumbbell, sets: 3, reps: 12, rest_sec: 75 }
+      - { exercise: reverse_snow_angel, sets: 3, reps: 12, rest_sec: 45 }
+      - { exercise: biceps_curl_dumbbell, sets: 3, reps: 12, rest_sec: 45 }
+      - { exercise: farmer_carry_dumbbell, sets: 3, duration_sec: 45, rest_sec: 60 }
+  - code: F
+    title: { vi: "Chân và mông", en: "Legs and glutes" }
+    exercises:
+      - { exercise: goblet_squat, sets: 4, reps: 12, rest_sec: 90 }
+      - { exercise: split_squat_dumbbell, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: rdl_dumbbell, sets: 3, reps: 12, rest_sec: 75 }
+      - { exercise: single_leg_glute_bridge, sets: 3, reps: 12, rest_sec: 45 }
+      - { exercise: side_plank, sets: 2, duration_sec: 40, rest_sec: 30 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 1, reps_delta: 1, duration_delta_sec: 10 }
+  - { week: 4, sets_delta: -1, reps_delta: -2, duration_delta_sec: 0 }
+reviewed: false

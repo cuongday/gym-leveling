@@ -1,0 +1,7 @@
+{
+  "@@locale": "en",
+  "appTitle": "Gym Leveling",
+  "homeGreeting": "Welcome back",
+  "errorGeneric": "Can't connect to server",
+  "retry": "Retry"
+}

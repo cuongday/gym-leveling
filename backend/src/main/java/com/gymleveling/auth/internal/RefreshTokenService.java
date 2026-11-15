@@ -4,7 +4,10 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import com.gymleveling.user.UserProfile;
+import com.gymleveling.user.UserService;
 import java.time.Clock;
+import java.time.Duration;
 import java.time.Instant;
 import java.util.Base64;
 import java.util.HexFormat;
@@ -19,11 +22,17 @@ class RefreshTokenService {
 
 	private static final SecureRandom RANDOM = new SecureRandom();
 
+	/** Re-presenting a just-used token within this window (retry / race) is rejected without revoking. */
+	static final Duration REUSE_GRACE = Duration.ofSeconds(10);
+
 	private final RefreshTokenRepository repository;
 	private final JwtProperties props;
 	private final Clock clock;
+	private final UserService userService;
 
-	RefreshTokenService(RefreshTokenRepository repository, JwtProperties props, Clock clock) {
+	RefreshTokenService(RefreshTokenRepository repository, JwtProperties props, Clock clock,
+			UserService userService) {
+		this.userService = userService;
 		this.repository = repository;
 		this.props = props;
 		this.clock = clock;
@@ -40,7 +49,7 @@ class RefreshTokenService {
 		return raw;
 	}
 
-	record Rotated(UUID userId, String refreshToken) {
+	record Rotated(UserProfile profile, String refreshToken) {
 	}
 
 	/**
@@ -56,17 +65,21 @@ class RefreshTokenService {
 			throw invalid();
 		}
 		if (token.getUsedAt() != null) {
-			repository.revokeAllForUser(token.getUserId(), now);
+			if (!now.isBefore(token.getUsedAt().plus(REUSE_GRACE))) {
+				repository.revokeAllForUser(token.getUserId(), now);
+			}
 			throw invalid();
 		}
 		token.setUsedAt(now);
-		return new Rotated(token.getUserId(), issue(token.getUserId(), token.getFamilyId()));
+		// Profile is read inside the transaction so a failure rolls the rotation back.
+		UserProfile profile = userService.getProfile(token.getUserId());
+		return new Rotated(profile, issue(token.getUserId(), token.getFamilyId()));
 	}
 
 	/** Revokes every token in the presented token's family; unknown tokens are a no-op. */
 	@Transactional
 	void revokeFamily(String rawToken) {
-		repository.findByTokenHash(sha256Hex(rawToken))
+		repository.findByTokenHashForUpdate(sha256Hex(rawToken))
 			.ifPresent(t -> repository.revokeFamily(t.getFamilyId(), clock.instant()));
 	}
 

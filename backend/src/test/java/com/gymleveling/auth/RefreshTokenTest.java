@@ -26,6 +26,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
@@ -106,6 +107,7 @@ class RefreshTokenTest {
 		String r1 = login();
 		String s1 = login();
 		String r2 = refreshOk(r1);
+		clock.advance(Duration.ofSeconds(11));
 		refresh(r1).andExpect(status().isUnauthorized())
 			.andExpect(jsonPath("$.code").value("auth.invalid_refresh_token"));
 		refresh(r2).andExpect(status().isUnauthorized())
@@ -115,6 +117,37 @@ class RefreshTokenTest {
 		Integer active = jdbc.queryForObject("select count(*) from refresh_tokens where revoked_at is null",
 				Integer.class);
 		assertThat(active).isZero();
+	}
+
+	@Test
+	void refresh_reuseWithinGrace_doesNotRevoke() throws Exception {
+		register();
+		String r1 = login();
+		String r2 = refreshOk(r1);
+		refresh(r1).andExpect(status().isUnauthorized())
+			.andExpect(jsonPath("$.code").value("auth.invalid_refresh_token"));
+		refreshOk(r2);
+	}
+
+	@Test
+	void refresh_reuseExactlyAtGraceBoundary_revokes() throws Exception {
+		register();
+		String r1 = login();
+		String s1 = login();
+		String r2 = refreshOk(r1);
+		clock.advance(Duration.ofSeconds(10));
+		refresh(r1).andExpect(status().isUnauthorized());
+		refresh(r2).andExpect(status().isUnauthorized());
+		refresh(s1).andExpect(status().isUnauthorized());
+	}
+
+	@Test
+	void refresh_expiresExactlyNow_returns401() throws Exception {
+		register();
+		String r1 = login();
+		clock.advance(Duration.ofDays(30));
+		refresh(r1).andExpect(status().isUnauthorized())
+			.andExpect(jsonPath("$.code").value("auth.invalid_refresh_token"));
 	}
 
 	@Test
@@ -151,20 +184,27 @@ class RefreshTokenTest {
 		String r1 = login();
 		ExecutorService pool = Executors.newFixedThreadPool(2);
 		CountDownLatch start = new CountDownLatch(1);
-		List<Future<Integer>> results = new ArrayList<>();
+		List<Future<String[]>> results = new ArrayList<>();
 		for (int i = 0; i < 2; i++) {
 			results.add(pool.submit(() -> {
 				start.await();
-				return refresh(r1).andReturn().getResponse().getStatus();
+				MockHttpServletResponse res = refresh(r1).andReturn().getResponse();
+				return new String[] { String.valueOf(res.getStatus()), res.getContentAsString() };
 			}));
 		}
 		start.countDown();
 		List<Integer> statuses = new ArrayList<>();
-		for (Future<Integer> f : results) {
-			statuses.add(f.get());
+		String winnerToken = null;
+		for (Future<String[]> f : results) {
+			String[] r = f.get();
+			statuses.add(Integer.parseInt(r[0]));
+			if (r[0].equals("200")) {
+				winnerToken = JsonPath.read(r[1], "$.refreshToken");
+			}
 		}
 		pool.shutdown();
 		assertThat(statuses).containsExactlyInAnyOrder(200, 401);
+		refreshOk(winnerToken);
 	}
 
 }

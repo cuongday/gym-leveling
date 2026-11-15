@@ -94,9 +94,8 @@ class AuthController {
 	@PostMapping("/refresh")
 	TokenResponse refresh(@Valid @RequestBody RefreshRequest req) {
 		RefreshTokenService.Rotated rotated = refreshTokens.rotate(req.refreshToken());
-		UserProfile profile = userService.getProfile(rotated.userId());
-		return new TokenResponse(jwtService.issueAccessToken(rotated.userId()), rotated.refreshToken(),
-				props.accessTtl().toSeconds(), "Bearer", profile);
+		return new TokenResponse(jwtService.issueAccessToken(rotated.profile().id()), rotated.refreshToken(),
+				props.accessTtl().toSeconds(), "Bearer", rotated.profile());
 	}
 
 	@PostMapping("/logout")

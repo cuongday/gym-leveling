@@ -77,4 +77,35 @@ class UserEntity {
 	Instant getCreatedAt() { return createdAt; }
 	Instant getUpdatedAt() { return updatedAt; }
 
+	String effectiveTimezone(Instant at) {
+		if (pendingTimezone != null && pendingTimezoneFrom != null && !pendingTimezoneFrom.isAfter(at)) {
+			return pendingTimezone;
+		}
+		return timezone;
+	}
+
+	/** Folds an elapsed pending timezone into the current one. */
+	void foldPending(Instant now) {
+		if (pendingTimezone != null && pendingTimezoneFrom != null && !pendingTimezoneFrom.isAfter(now)) {
+			timezone = pendingTimezone;
+			pendingTimezone = null;
+			pendingTimezoneFrom = null;
+		}
+	}
+
+	void setPending(String tz, Instant from, Instant now) {
+		this.pendingTimezone = tz;
+		this.pendingTimezoneFrom = from;
+		this.timezoneChangedAt = now;
+	}
+
+	void clearPending() {
+		this.pendingTimezone = null;
+		this.pendingTimezoneFrom = null;
+	}
+
+	void setDisplayName(String displayName) { this.displayName = displayName; }
+	void setLocale(String locale) { this.locale = locale; }
+	void touch(Instant now) { this.updatedAt = now; }
+
 }

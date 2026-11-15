@@ -8,12 +8,14 @@ import java.time.Clock;
 import java.time.DateTimeException;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 class UserServiceImpl implements UserService {
@@ -59,6 +61,56 @@ class UserServiceImpl implements UserService {
 			.orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "user.not_found"));
 	}
 
+	@Override
+	@Transactional
+	public UserProfile updateProfile(UUID id, String displayName, String locale, String timezone) {
+		String newTz = timezone == null ? null : validateTimezone(timezone);
+		String name = null;
+		if (displayName != null) {
+			name = displayName.trim();
+			if (name.isEmpty() || name.length() > 40) {
+				throw new ApiException(HttpStatus.BAD_REQUEST, "validation.failed");
+			}
+		}
+		if (locale != null && !locale.equals("vi") && !locale.equals("en")) {
+			throw new ApiException(HttpStatus.BAD_REQUEST, "validation.failed");
+		}
+		UserEntity u = repository.findById(id)
+			.orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "user.not_found"));
+		Instant now = clock.instant();
+		u.foldPending(now);
+		if (name != null) {
+			u.setDisplayName(name);
+		}
+		if (locale != null) {
+			u.setLocale(locale);
+		}
+		if (newTz != null) {
+			applyTimezoneChange(u, newTz, now);
+		}
+		u.touch(now);
+		return toProfile(repository.saveAndFlush(u));
+	}
+
+	private void applyTimezoneChange(UserEntity u, String newTz, Instant now) {
+		if (newTz.equals(u.getTimezone())) {
+			if (u.getPendingTimezone() != null) {
+				u.clearPending();
+			}
+			return;
+		}
+		if (newTz.equals(u.getPendingTimezone())) {
+			return;
+		}
+		Instant changedAt = u.getTimezoneChangedAt();
+		if (changedAt != null && now.isBefore(changedAt.plus(TIMEZONE_CHANGE_INTERVAL))) {
+			throw new ApiException(HttpStatus.CONFLICT, "user.timezone_change_too_soon");
+		}
+		ZoneId zone = ZoneId.of(u.getTimezone());
+		Instant from = LocalDate.ofInstant(now, zone).plusDays(1).atStartOfDay(zone).toInstant();
+		u.setPending(newTz, from, now);
+	}
+
 	private static ApiException emailTaken() {
 		return new ApiException(HttpStatus.CONFLICT, "auth.email_taken");
 	}
@@ -78,6 +130,14 @@ class UserServiceImpl implements UserService {
 
 	private UserProfile toProfile(UserEntity u) {
 		Instant now = clock.instant();
+		String tz = u.effectiveTimezone(now);
+		String pending = null;
+		Instant pendingFrom = null;
+		if (u.getPendingTimezone() != null && u.getPendingTimezoneFrom() != null
+				&& u.getPendingTimezoneFrom().isAfter(now)) {
+			pending = u.getPendingTimezone();
+			pendingFrom = u.getPendingTimezoneFrom();
+		}
 		Instant availableAt = null;
 		if (u.getTimezoneChangedAt() != null) {
 			Instant next = u.getTimezoneChangedAt().plus(TIMEZONE_CHANGE_INTERVAL);
@@ -86,8 +146,8 @@ class UserServiceImpl implements UserService {
 			}
 		}
 		boolean premium = u.getPremiumUntil() != null && u.getPremiumUntil().isAfter(now);
-		return new UserProfile(u.getId(), u.getEmail(), u.getDisplayName(), u.getLocale(), u.getTimezone(),
-				u.getPendingTimezone(), u.getPendingTimezoneFrom(), availableAt, premium);
+		return new UserProfile(u.getId(), u.getEmail(), u.getDisplayName(), u.getLocale(), tz,
+				pending, pendingFrom, availableAt, premium);
 	}
 
 }

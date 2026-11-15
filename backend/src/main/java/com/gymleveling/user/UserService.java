@@ -12,6 +12,9 @@ public interface UserService {
 
 	UserProfile getProfile(UUID id);
 
+	/** Null arguments mean unchanged. */
+	UserProfile updateProfile(UUID id, String displayName, String locale, String timezone);
+
 	static String normalizeEmail(String email) {
 		return email.trim().toLowerCase(Locale.ROOT);
 	}

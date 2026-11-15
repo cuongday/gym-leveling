@@ -46,6 +46,9 @@ class AuthController {
 
 	}
 
+	record RefreshRequest(@NotBlank String refreshToken) {
+	}
+
 	private final PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 	private final String dummyHash = passwordEncoder.encode("dummy-password-for-timing");
 
@@ -86,6 +89,20 @@ class AuthController {
 		}
 		limiter.reset(email);
 		return tokens(userService.getProfile(account.id()));
+	}
+
+	@PostMapping("/refresh")
+	TokenResponse refresh(@Valid @RequestBody RefreshRequest req) {
+		RefreshTokenService.Rotated rotated = refreshTokens.rotate(req.refreshToken());
+		UserProfile profile = userService.getProfile(rotated.userId());
+		return new TokenResponse(jwtService.issueAccessToken(rotated.userId()), rotated.refreshToken(),
+				props.accessTtl().toSeconds(), "Bearer", profile);
+	}
+
+	@PostMapping("/logout")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	void logout(@Valid @RequestBody RefreshRequest req) {
+		refreshTokens.revokeFamily(req.refreshToken());
 	}
 
 	private TokenResponse tokens(UserProfile profile) {

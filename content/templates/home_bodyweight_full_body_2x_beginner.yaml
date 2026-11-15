@@ -1,0 +1,37 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: home_bodyweight_full_body_2x_beginner
+name: { vi: "Làm quen toàn thân tại nhà – 2 buổi", en: "Home full-body starter – 2 days" }
+summary: { vi: "2 buổi/tuần, không cần dụng cụ, học đúng kỹ thuật các động tác cơ bản.", en: "2 days a week, no equipment, learn the basic movements with good form." }
+goals: [fitness, maintain, fat_loss]
+level: beginner
+location: home_bodyweight
+sessions_per_week: 2
+session_minutes: 30
+split: full_body
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: squat_bodyweight, sets: 2, reps: 10, rest_sec: 60 }
+      - { exercise: incline_push_up, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: doorway_row, sets: 2, reps: 10, rest_sec: 60 }
+      - { exercise: glute_bridge, sets: 2, reps: 12, rest_sec: 45 }
+      - { exercise: knee_plank, sets: 2, duration_sec: 20, rest_sec: 45 }
+      - { exercise: marching_in_place, sets: 2, duration_sec: 60, rest_sec: 45 }
+  - code: B
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: split_squat_bodyweight, sets: 2, reps: 6, rest_sec: 60 }
+      - { exercise: knee_push_up, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: prone_y_raise, sets: 2, reps: 10, rest_sec: 45 }
+      - { exercise: hip_hinge_bodyweight, sets: 2, reps: 10, rest_sec: 45 }
+      - { exercise: dead_bug, sets: 2, reps: 6, rest_sec: 45 }
+      - { exercise: step_jack, sets: 2, duration_sec: 40, rest_sec: 45 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 0, reps_delta: 2, duration_delta_sec: 10 }
+  - { week: 4, sets_delta: 0, reps_delta: 2, duration_delta_sec: 10 }
+reviewed: false

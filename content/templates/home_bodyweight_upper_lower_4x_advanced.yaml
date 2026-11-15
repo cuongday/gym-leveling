@@ -1,0 +1,55 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: home_bodyweight_upper_lower_4x_advanced
+name: { vi: "Thân trên / thân dưới nâng cao tại nhà – 4 buổi", en: "Advanced home upper/lower – 4 days" }
+summary: { vi: "4 buổi/tuần với biến thể khó: Bulgarian split squat, hít đất chân cao, kéo xà gầm bàn.", en: "4 days a week with harder variations: Bulgarian split squats, decline push-ups, table rows." }
+goals: [muscle_gain, fitness]
+level: advanced
+location: home_bodyweight
+sessions_per_week: 4
+session_minutes: 45
+split: upper_lower
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Thân trên", en: "Upper body" }
+    exercises:
+      - { exercise: decline_push_up, sets: 3, reps: 8, rest_sec: 90 }
+      - { exercise: table_row, sets: 4, reps: 10, rest_sec: 75 }
+      - { exercise: pike_push_up, sets: 3, reps: 6, rest_sec: 90 }
+      - { exercise: reverse_snow_angel, sets: 3, reps: 12, rest_sec: 45 }
+      - { exercise: diamond_push_up, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: plank, sets: 3, duration_sec: 45, rest_sec: 45 }
+  - code: B
+    title: { vi: "Thân dưới", en: "Lower body" }
+    exercises:
+      - { exercise: bulgarian_split_squat_bodyweight, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: single_leg_rdl_bodyweight, sets: 3, reps: 10, rest_sec: 60 }
+      - { exercise: single_leg_glute_bridge, sets: 3, reps: 12, rest_sec: 45 }
+      - { exercise: reverse_lunge_bodyweight, sets: 2, reps: 10, rest_sec: 60 }
+      - { exercise: calf_raise_bodyweight, sets: 3, reps: 20, rest_sec: 30 }
+      - { exercise: side_plank, sets: 2, duration_sec: 30, rest_sec: 30 }
+  - code: C
+    title: { vi: "Thân trên", en: "Upper body" }
+    exercises:
+      - { exercise: table_row, sets: 4, reps: 10, rest_sec: 75 }
+      - { exercise: push_up, sets: 4, reps: 12, rest_sec: 75 }
+      - { exercise: doorway_row, sets: 3, reps: 15, rest_sec: 45 }
+      - { exercise: diamond_push_up, sets: 3, reps: 8, rest_sec: 60 }
+      - { exercise: prone_y_raise, sets: 2, reps: 15, rest_sec: 30 }
+      - { exercise: reverse_crunch, sets: 3, reps: 12, rest_sec: 45 }
+  - code: D
+    title: { vi: "Thân dưới", en: "Lower body" }
+    exercises:
+      - { exercise: reverse_lunge_bodyweight, sets: 3, reps: 10, rest_sec: 60 }
+      - { exercise: bulgarian_split_squat_bodyweight, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: single_leg_glute_bridge, sets: 3, reps: 12, rest_sec: 45 }
+      - { exercise: wall_sit, sets: 2, duration_sec: 45, rest_sec: 45 }
+      - { exercise: mountain_climber, sets: 3, duration_sec: 30, rest_sec: 45 }
+      - { exercise: dead_bug, sets: 2, reps: 10, rest_sec: 30 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 1, reps_delta: 1, duration_delta_sec: 10 }
+  - { week: 4, sets_delta: -1, reps_delta: -2, duration_delta_sec: 0 }
+reviewed: false

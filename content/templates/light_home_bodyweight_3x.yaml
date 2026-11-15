@@ -1,0 +1,43 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: light_home_bodyweight_3x
+name: { vi: "Vận động nhẹ tại nhà – 3 buổi", en: "Gentle home movement – 3 days" }
+summary: { vi: "3 buổi ngắn 20 phút/tuần, cường độ thấp, không va đập; hãy hỏi ý kiến bác sĩ trước khi tập.", en: "3 short 20-minute days a week, low intensity, no impact; please check with your doctor first." }
+goals: [fitness, maintain]
+level: light
+location: home_bodyweight
+sessions_per_week: 3
+session_minutes: 20
+split: full_body
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: marching_in_place, sets: 1, duration_sec: 90, rest_sec: 30 }
+      - { exercise: sit_to_stand, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: wall_push_up, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: doorway_row, sets: 2, reps: 8, rest_sec: 45 }
+      - { exercise: bird_dog, sets: 2, reps: 4, rest_sec: 45 }
+  - code: B
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: marching_in_place, sets: 1, duration_sec: 120, rest_sec: 30 }
+      - { exercise: glute_bridge, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: prone_y_raise, sets: 2, reps: 8, rest_sec: 45 }
+      - { exercise: calf_raise_bodyweight, sets: 2, reps: 10, rest_sec: 45 }
+      - { exercise: dead_bug, sets: 2, reps: 4, rest_sec: 45 }
+  - code: C
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: step_jack, sets: 1, duration_sec: 90, rest_sec: 30 }
+      - { exercise: sit_to_stand, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: wall_push_up, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: hip_hinge_bodyweight, sets: 2, reps: 8, rest_sec: 45 }
+      - { exercise: bird_dog, sets: 2, reps: 4, rest_sec: 45 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 0, reps_delta: 2, duration_delta_sec: 5 }
+  - { week: 4, sets_delta: 0, reps_delta: 2, duration_delta_sec: 5 }
+reviewed: false

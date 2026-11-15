@@ -1,0 +1,54 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: home_dumbbell_upper_lower_4x_intermediate
+name: { vi: "Thân trên / thân dưới với tạ đơn – 4 buổi", en: "Dumbbell upper/lower – 4 days" }
+summary: { vi: "4 buổi/tuần chia trên – dưới, đủ khối lượng để tăng cơ và giữ dáng săn chắc.", en: "4 days a week split upper/lower, enough volume to build muscle and stay lean." }
+goals: [muscle_gain, fat_loss]
+level: intermediate
+location: home_dumbbell
+sessions_per_week: 4
+session_minutes: 45
+split: upper_lower
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Thân trên", en: "Upper body" }
+    exercises:
+      - { exercise: floor_press_dumbbell, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: bent_over_row_dumbbell, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: shoulder_press_dumbbell, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: one_arm_row_dumbbell, sets: 2, reps: 12, rest_sec: 60 }
+      - { exercise: biceps_curl_dumbbell, sets: 2, reps: 12, rest_sec: 45 }
+      - { exercise: overhead_triceps_extension_dumbbell, sets: 2, reps: 12, rest_sec: 45 }
+  - code: B
+    title: { vi: "Thân dưới", en: "Lower body" }
+    exercises:
+      - { exercise: goblet_squat, sets: 3, reps: 12, rest_sec: 90 }
+      - { exercise: rdl_dumbbell, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: split_squat_dumbbell, sets: 3, reps: 8, rest_sec: 75 }
+      - { exercise: glute_bridge_dumbbell, sets: 3, reps: 12, rest_sec: 60 }
+      - { exercise: calf_raise_bodyweight, sets: 2, reps: 15, rest_sec: 30 }
+      - { exercise: dead_bug, sets: 2, reps: 8, rest_sec: 30 }
+  - code: C
+    title: { vi: "Thân trên", en: "Upper body" }
+    exercises:
+      - { exercise: one_arm_row_dumbbell, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: push_up, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: seated_shoulder_press_dumbbell, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: rear_delt_fly_dumbbell, sets: 3, reps: 12, rest_sec: 45 }
+      - { exercise: lateral_raise_dumbbell, sets: 2, reps: 12, rest_sec: 45 }
+      - { exercise: plank, sets: 3, duration_sec: 30, rest_sec: 45 }
+  - code: D
+    title: { vi: "Thân dưới", en: "Lower body" }
+    exercises:
+      - { exercise: split_squat_dumbbell, sets: 3, reps: 10, rest_sec: 75 }
+      - { exercise: rdl_dumbbell, sets: 3, reps: 10, rest_sec: 90 }
+      - { exercise: goblet_squat, sets: 3, reps: 12, rest_sec: 75 }
+      - { exercise: single_leg_glute_bridge, sets: 2, reps: 10, rest_sec: 45 }
+      - { exercise: farmer_carry_dumbbell, sets: 3, duration_sec: 40, rest_sec: 60 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 1, reps_delta: 0, duration_delta_sec: 5 }
+  - { week: 4, sets_delta: -1, reps_delta: -1, duration_delta_sec: 0 }
+reviewed: false

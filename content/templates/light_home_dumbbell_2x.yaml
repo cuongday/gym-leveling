@@ -1,0 +1,37 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: light_home_dumbbell_2x
+name: { vi: "Tạ nhẹ tại nhà – 2 buổi", en: "Gentle home dumbbells – 2 days" }
+summary: { vi: "2 buổi/tuần với tạ rất nhẹ, ngồi hoặc nằm là chính; hãy hỏi ý kiến bác sĩ trước khi tập.", en: "2 days a week with very light dumbbells, mostly seated or lying; please check with your doctor first." }
+goals: [fitness, maintain]
+level: light
+location: home_dumbbell
+sessions_per_week: 2
+session_minutes: 30
+split: full_body
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: marching_in_place, sets: 1, duration_sec: 180, rest_sec: 30 }
+      - { exercise: sit_to_stand, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: floor_press_dumbbell, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: one_arm_row_dumbbell, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: glute_bridge, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: bird_dog, sets: 2, reps: 4, rest_sec: 45 }
+  - code: B
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: step_jack, sets: 1, duration_sec: 120, rest_sec: 30 }
+      - { exercise: step_up_bodyweight, sets: 2, reps: 6, rest_sec: 60 }
+      - { exercise: seated_shoulder_press_dumbbell, sets: 2, reps: 8, rest_sec: 60 }
+      - { exercise: biceps_curl_dumbbell, sets: 2, reps: 8, rest_sec: 45 }
+      - { exercise: hip_hinge_bodyweight, sets: 2, reps: 8, rest_sec: 45 }
+      - { exercise: dead_bug, sets: 2, reps: 4, rest_sec: 45 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 0, reps_delta: 2, duration_delta_sec: 5 }
+  - { week: 4, sets_delta: 0, reps_delta: 2, duration_delta_sec: 5 }
+reviewed: false

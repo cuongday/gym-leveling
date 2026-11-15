@@ -1,0 +1,37 @@
+# DRAFT – chưa được PT duyệt. Format: content/README.md
+version: 1
+id: gym_full_body_2x_beginner
+name: { vi: "Làm quen phòng gym – 2 buổi", en: "Gym starter – 2 days" }
+summary: { vi: "2 buổi/tuần chủ yếu với máy tập, dễ học, an toàn cho người mới.", en: "2 days a week mostly on machines – easy to learn and safe for beginners." }
+goals: [muscle_gain, fitness, maintain]
+level: beginner
+location: gym
+sessions_per_week: 2
+session_minutes: 45
+split: full_body
+weeks: 4
+sessions:
+  - code: A
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: leg_press, sets: 2, reps: 12, rest_sec: 90 }
+      - { exercise: chest_press_machine, sets: 2, reps: 12, rest_sec: 75 }
+      - { exercise: lat_pulldown, sets: 2, reps: 12, rest_sec: 75 }
+      - { exercise: glute_bridge, sets: 2, reps: 12, rest_sec: 60 }
+      - { exercise: dead_bug, sets: 2, reps: 6, rest_sec: 45 }
+      - { exercise: stationary_bike, sets: 1, duration_sec: 300, rest_sec: 60 }
+  - code: B
+    title: { vi: "Toàn thân", en: "Full body" }
+    exercises:
+      - { exercise: goblet_squat, sets: 2, reps: 10, rest_sec: 90 }
+      - { exercise: seated_shoulder_press_dumbbell, sets: 2, reps: 10, rest_sec: 75 }
+      - { exercise: seated_cable_row, sets: 2, reps: 12, rest_sec: 75 }
+      - { exercise: leg_curl_machine, sets: 2, reps: 12, rest_sec: 60 }
+      - { exercise: knee_plank, sets: 2, duration_sec: 25, rest_sec: 45 }
+      - { exercise: treadmill_incline_walk, sets: 1, duration_sec: 300, rest_sec: 60 }
+weekly_progression:
+  - { week: 1, sets_delta: 0, reps_delta: 0, duration_delta_sec: 0 }
+  - { week: 2, sets_delta: 0, reps_delta: 1, duration_delta_sec: 5 }
+  - { week: 3, sets_delta: 0, reps_delta: 2, duration_delta_sec: 10 }
+  - { week: 4, sets_delta: 0, reps_delta: 2, duration_delta_sec: 10 }
+reviewed: false

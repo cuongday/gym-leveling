@@ -1,5 +1,6 @@
 package com.gymleveling.auth.internal;
 
+import jakarta.servlet.DispatcherType;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +19,7 @@ class SecurityConfig {
 		http.csrf(AbstractHttpConfigurer::disable)
 			.sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 			.authorizeHttpRequests(a -> a
+				.dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
 				.requestMatchers("/api/v1/auth/**", "/api/v1/ping", "/actuator/health", "/v3/api-docs/**",
 						"/swagger-ui/**", "/swagger-ui.html")
 				.permitAll()

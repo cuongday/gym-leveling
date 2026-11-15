@@ -7,7 +7,9 @@ import com.gymleveling.MutableClock;
 import com.gymleveling.auth.internal.JwtProperties;
 import com.gymleveling.auth.internal.JwtService;
 import jakarta.validation.Validation;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.util.Base64;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.oauth2.jwt.Jwt;
@@ -45,6 +47,37 @@ class JwtServiceTest {
 		var shortProps = new JwtProperties("x".repeat(31), "gym-leveling", Duration.ofMinutes(15), Duration.ofDays(30));
 		assertThat(validator.validate(shortProps)).isNotEmpty();
 		assertThat(validator.validate(props)).isEmpty();
+	}
+
+	@Test
+	void wrongIssuer_rejected() {
+		var other = new JwtService(new JwtProperties(SECRET, "someone-else", Duration.ofMinutes(15), Duration.ofDays(30)), clock);
+		String token = other.issueAccessToken(UUID.randomUUID());
+		assertThatThrownBy(() -> decoder.decode(token)).isInstanceOf(JwtException.class);
+	}
+
+	@Test
+	void differentSecret_rejected() {
+		var other = new JwtService(new JwtProperties("another-secret-another-secret-another-0123", "gym-leveling",
+				Duration.ofMinutes(15), Duration.ofDays(30)), clock);
+		String token = other.issueAccessToken(UUID.randomUUID());
+		assertThatThrownBy(() -> decoder.decode(token)).isInstanceOf(JwtException.class);
+	}
+
+	@Test
+	void unsignedAlgNoneToken_rejected() {
+		var enc = Base64.getUrlEncoder().withoutPadding();
+		long exp = clock.instant().getEpochSecond() + 900;
+		String header = enc.encodeToString("{\"alg\":\"none\"}".getBytes(StandardCharsets.UTF_8));
+		String payload = enc.encodeToString(("{\"sub\":\"" + UUID.randomUUID() + "\",\"iss\":\"gym-leveling\",\"exp\":"
+				+ exp + "}").getBytes(StandardCharsets.UTF_8));
+		String token = header + "." + payload + ".";
+		assertThatThrownBy(() -> decoder.decode(token)).isInstanceOf(JwtException.class);
+	}
+
+	@Test
+	void toString_masksSecret() {
+		assertThat(props.toString()).doesNotContain(SECRET);
 	}
 
 }

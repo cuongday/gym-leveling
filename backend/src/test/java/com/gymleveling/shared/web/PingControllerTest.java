@@ -62,7 +62,8 @@ class PingControllerTest {
 		mvc.perform(get("/api/v1/does-not-exist").with(jwt()))
 			.andExpect(status().isNotFound())
 			.andExpect(content().contentTypeCompatibleWith("application/problem+json"))
-			.andExpect(jsonPath("$.status").value(404));
+			.andExpect(jsonPath("$.status").value(404))
+			.andExpect(jsonPath("$.code").value("not_found"));
 	}
 
 }

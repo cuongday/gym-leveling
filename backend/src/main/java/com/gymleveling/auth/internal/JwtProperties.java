@@ -21,4 +21,10 @@ public record JwtProperties(
 		return secret != null && secret.getBytes(StandardCharsets.UTF_8).length >= 32;
 	}
 
+	@Override
+	public String toString() {
+		return "JwtProperties[secret=****, issuer=" + issuer + ", accessTtl=" + accessTtl
+				+ ", refreshTtl=" + refreshTtl + "]";
+	}
+
 }

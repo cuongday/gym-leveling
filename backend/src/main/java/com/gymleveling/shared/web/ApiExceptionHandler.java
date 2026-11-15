@@ -1,6 +1,14 @@
 package com.gymleveling.shared.web;
 
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.servlet.NoHandlerFoundException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
+import org.springframework.lang.Nullable;
 import java.util.Map;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -17,6 +25,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @RestControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
+
+	private static final Logger log = LoggerFactory.getLogger(ApiExceptionHandler.class);
 
 	private final MessageSource messages;
 
@@ -49,6 +59,43 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 			.toList();
 		pd.setProperty("errors", errors);
 		return ResponseEntity.badRequest().body(pd);
+	}
+
+	/** Fallback: log server-side, never leak the exception message to the client. */
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<ProblemDetail> handleUnexpected(Exception ex) throws Exception {
+		if (ex instanceof AccessDeniedException || ex instanceof AuthenticationException) {
+			throw ex; // let Spring Security's handlers deal with these
+		}
+		log.error("Unhandled exception", ex);
+		HttpStatus st = HttpStatus.INTERNAL_SERVER_ERROR;
+		return ResponseEntity.status(st).body(problem(messages, st, "internal.error"));
+	}
+
+	@Override
+	protected ResponseEntity<Object> handleExceptionInternal(Exception ex, @Nullable Object body,
+			HttpHeaders headers, HttpStatusCode statusCode, WebRequest request) {
+		if (body == null && ex instanceof org.springframework.web.ErrorResponse er) {
+			body = er.getBody();
+		}
+		if (body instanceof ProblemDetail pd && (pd.getProperties() == null || !pd.getProperties().containsKey("code"))) {
+			String code;
+			if (ex instanceof HttpMessageNotReadableException) {
+				code = "validation.failed";
+			}
+			else if (ex instanceof NoResourceFoundException || ex instanceof NoHandlerFoundException) {
+				code = "not_found";
+			}
+			else if (statusCode.is5xxServerError()) {
+				code = "internal.error";
+			}
+			else {
+				code = "request.invalid";
+			}
+			pd.setDetail(messages.getMessage("error." + code, null, code, LocaleContextHolder.getLocale()));
+			pd.setProperty("code", code);
+		}
+		return super.handleExceptionInternal(ex, body, headers, statusCode, request);
 	}
 
 }

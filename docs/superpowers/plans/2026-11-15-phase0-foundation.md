@@ -335,3 +335,16 @@ Mỗi plan dưới đây là một bản riêng, chạy được và test đư�
 6. **Thành tựu + bước chân** — Health Connect/HealthKit, đồng bộ 7 ngày, trao thưởng.
 7. **Bảng xếp hạng** — Redis sorted set: toàn server, theo rank, tuần.
 8. **Cài đặt + deploy** — nút chuyển vi/en, Docker image, VPS, HTTPS, backup, phát hành thử nội bộ.
+
+---
+
+## Kết quả thực thi & việc chuyển sang Giai đoạn 1
+
+Giai đoạn 0 hoàn thành trên nhánh `phase0-foundation` (backend 7/7 test, mobile 11/11 test). Các việc review đề nghị nhưng hoãn lại — đưa vào plan Giai đoạn 1 tương ứng:
+
+- **Auth/Deploy:** bỏ giá trị mặc định `DB_PASSWORD:change-me` ngoài profile local (thiếu biến → khởi động lỗi ngay); giới hạn/tắt springdoc (`/swagger-ui`, `/v3/api-docs`) ở môi trường deploy.
+- **Phát hành thử nội bộ:** thêm quyền `INTERNET` vào `AndroidManifest.xml` chính (bản release chưa có); đóng gói font Chakra Petch + Be Vietnam Pro vào assets thay vì tải lúc chạy.
+- **Cài đặt / đổi ngôn ngữ:** khởi tạo `AppLocaleNotifier` từ `PlatformDispatcher.locale` (hiện việc gửi đúng `Accept-Language` ở lần gọi đầu phụ thuộc thứ tự microtask của Dio); làm mới các provider phụ thuộc ngôn ngữ khi đổi locale; thêm test toàn app kiểm tra header.
+- **API client:** gói cả lỗi parse (không phải `DioException`) vào `ApiException`; phân biệt loại lỗi (mất mạng / 4xx / 5xx) khi có endpoint thật.
+- **CI:** pin `flutter-version` (đang dùng 3.50.0); xử lý `paths` filter nếu bật required checks; thêm concurrency group.
+- **Modulith events:** nếu cần event bền vững, thêm lại `spring-modulith-starter-jpa` kèm migration bảng `event_publication`.

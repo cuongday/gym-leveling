@@ -30,7 +30,7 @@ Compose yêu cầu `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD` trong `.e
 
 ## Backend
 
-Nạp `.env` vào shell trước khi chạy:
+Đặt `JWT_SECRET` trong `.env` (chuỗi ngẫu nhiên ≥ 32 ký tự, ví dụ `openssl rand -base64 48`); thiếu hoặc ngắn hơn thì app không khởi động. Nạp `.env` vào shell trước khi chạy:
 
 ```bash
 set -a; . ./.env; set +a

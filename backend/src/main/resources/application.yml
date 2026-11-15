@@ -22,3 +22,9 @@ management:
     web:
       exposure:
         include: health
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    issuer: gym-leveling
+    access-ttl: 15m
+    refresh-ttl: 30d

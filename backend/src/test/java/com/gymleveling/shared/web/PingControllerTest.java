@@ -1,5 +1,6 @@
 package com.gymleveling.shared.web;
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -58,7 +59,7 @@ class PingControllerTest {
 
 	@Test
 	void unknownRoute_returnsProblemDetail() throws Exception {
-		mvc.perform(get("/api/v1/does-not-exist"))
+		mvc.perform(get("/api/v1/does-not-exist").with(jwt()))
 			.andExpect(status().isNotFound())
 			.andExpect(content().contentTypeCompatibleWith("application/problem+json"))
 			.andExpect(jsonPath("$.status").value(404));

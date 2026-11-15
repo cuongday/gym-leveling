@@ -200,6 +200,13 @@ class PauseTest {
 	}
 
 	@Test
+	void pause_unreadableBody_returnsValidationFailedWithErrors() throws Exception {
+		pause("{\"days\":\"abc\"}").andExpect(status().isBadRequest())
+			.andExpect(jsonPath("$.code").value("validation.failed"))
+			.andExpect(jsonPath("$.errors").isArray());
+	}
+
+	@Test
 	void pause_withoutToken_returns401() throws Exception {
 		mvc.perform(post("/api/v1/me/pause").contentType(MediaType.APPLICATION_JSON).content("{\"days\":1}"))
 			.andExpect(status().isUnauthorized());

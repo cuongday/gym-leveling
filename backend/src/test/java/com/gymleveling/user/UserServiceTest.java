@@ -65,4 +65,10 @@ class UserServiceTest {
 		assertThat(users.findAccountByEmail("none@b.com")).isEmpty();
 	}
 
+	@Test
+	void userAccount_toString_omitsPasswordHash() {
+		UserAccount a = new UserAccount(java.util.UUID.randomUUID(), "a@b.com", "$2a$10$secret-hash");
+		assertThat(a.toString()).doesNotContain("secret-hash").contains("a@b.com");
+	}
+
 }

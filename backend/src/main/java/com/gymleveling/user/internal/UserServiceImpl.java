@@ -10,6 +10,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -75,7 +76,7 @@ class UserServiceImpl implements UserService {
 		if (locale != null && !locale.equals("vi") && !locale.equals("en")) {
 			throw new ApiException(HttpStatus.BAD_REQUEST, "validation.failed");
 		}
-		UserEntity u = repository.findById(id)
+		UserEntity u = repository.findByIdForUpdate(id)
 			.orElseThrow(() -> new ApiException(HttpStatus.NOT_FOUND, "user.not_found"));
 		Instant now = clock.instant();
 		u.foldPending(now);
@@ -118,7 +119,10 @@ class UserServiceImpl implements UserService {
 	private static String validateTimezone(String tz) {
 		try {
 			ZoneId id = ZoneId.of(tz);
-			if (!tz.equals(id.getId()) || tz.startsWith("+") || tz.startsWith("-") || tz.equals("Z")) {
+			// Reject raw offsets ("+07:00", "Z") and prefixed offsets ("UTC+07:00", "GMT+7", "UT-3"), which
+			// ZoneId parses as ZoneRegions that normalize to a fixed ZoneOffset. Plain "UTC"/"GMT" stay valid.
+			boolean prefixedOffset = tz.matches("(?i)(UTC|GMT|UT)[+-].*");
+			if (id instanceof ZoneOffset || prefixedOffset || !tz.equals(id.getId())) {
 				throw new DateTimeException("offset");
 			}
 			return tz;

@@ -45,8 +45,11 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(ApiException.class)
 	public ResponseEntity<ProblemDetail> handleApi(ApiException ex) {
-		return ResponseEntity.status(ex.getStatus())
-			.body(problem(messages, ex.getStatus(), ex.getCode(), ex.getArgs()));
+		ProblemDetail pd = problem(messages, ex.getStatus(), ex.getCode(), ex.getArgs());
+		if ("validation.failed".equals(ex.getCode())) {
+			pd.setProperty("errors", List.of());
+		}
+		return ResponseEntity.status(ex.getStatus()).headers(ex.getHeaders()).body(pd);
 	}
 
 	@Override
@@ -94,6 +97,9 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 			}
 			pd.setDetail(messages.getMessage("error." + code, null, code, LocaleContextHolder.getLocale()));
 			pd.setProperty("code", code);
+			if ("validation.failed".equals(code)) {
+				pd.setProperty("errors", List.of());
+			}
 		}
 		return super.handleExceptionInternal(ex, body, headers, statusCode, request);
 	}

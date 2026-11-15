@@ -38,7 +38,7 @@ class AuthController {
 
 	}
 
-	record LoginRequest(@NotBlank String email, @NotBlank String password) {
+	record LoginRequest(@NotBlank @Size(max = 254) String email, @NotBlank String password) {
 
 		LoginRequest {
 			email = email == null ? null : email.trim();
@@ -80,11 +80,10 @@ class AuthController {
 	@PostMapping("/login")
 	TokenResponse login(@Valid @RequestBody LoginRequest req) {
 		String email = UserService.normalizeEmail(req.email());
-		limiter.checkAllowed(email);
+		limiter.acquire(email);
 		UserAccount account = userService.findAccountByEmail(email).orElse(null);
 		boolean ok = passwordEncoder.matches(req.password(), account != null ? account.passwordHash() : dummyHash);
 		if (account == null || !ok) {
-			limiter.recordFailure(email);
 			throw new ApiException(HttpStatus.UNAUTHORIZED, "auth.invalid_credentials");
 		}
 		limiter.reset(email);

@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.oauth2.server.resource.web.BearerTokenResolver;
+import org.springframework.security.oauth2.server.resource.web.DefaultBearerTokenResolver;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration(proxyBeanMethods = false)
@@ -25,9 +27,26 @@ class SecurityConfig {
 				.permitAll()
 				.anyRequest().authenticated())
 			.exceptionHandling(e -> e.authenticationEntryPoint(entryPoint))
-			.oauth2ResourceServer(o -> o.authenticationEntryPoint(entryPoint).jwt(j -> {
-			}));
+			.oauth2ResourceServer(o -> o.bearerTokenResolver(bearerTokenResolver())
+				.authenticationEntryPoint(entryPoint)
+				.jwt(j -> {
+				}));
 		return http.build();
+	}
+
+	/**
+	 * Clients attach their stored (possibly expired) access token to every request; public routes must ignore
+	 * it, otherwise an expired token would make /auth/refresh itself fail with 401.
+	 */
+	static BearerTokenResolver bearerTokenResolver() {
+		DefaultBearerTokenResolver delegate = new DefaultBearerTokenResolver();
+		return request -> {
+			String path = request.getRequestURI().substring(request.getContextPath().length());
+			if (path.startsWith("/api/v1/auth/") || path.equals("/api/v1/ping") || path.equals("/actuator/health")) {
+				return null;
+			}
+			return delegate.resolve(request);
+		};
 	}
 
 }

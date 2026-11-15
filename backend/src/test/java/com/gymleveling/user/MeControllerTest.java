@@ -3,6 +3,7 @@ package com.gymleveling.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.hamcrest.Matchers.hasItems;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -202,6 +203,32 @@ class MeControllerTest {
 		patchMe(s.token(), """
 				{"timezone":"Mars/Base"}
 				""").andExpect(status().isBadRequest()).andExpect(jsonPath("$.code").value("user.invalid_timezone"));
+		for (String tz : new String[] { "+07:00", "Z", "UTC+07:00", "GMT+7", "UT-3", "UTC+7", "GMT+07:00" }) {
+			patchMe(s.token(), """
+					{"timezone":"%s"}
+					""".formatted(tz)).andExpect(status().isBadRequest())
+				.andExpect(jsonPath("$.code").value("user.invalid_timezone"));
+		}
+	}
+
+	@Test
+	void patch_blankDisplayName_returnsFieldError() throws Exception {
+		Session s = register(null);
+		patchMe(s.token(), """
+				{"displayName":"   "}
+				""").andExpect(status().isBadRequest())
+			.andExpect(jsonPath("$.code").value("validation.failed"))
+			.andExpect(jsonPath("$.errors[*].field").value(hasItems("displayName")));
+	}
+
+	@Test
+	void patch_tooLongDisplayName_returnsFieldError() throws Exception {
+		Session s = register(null);
+		patchMe(s.token(), """
+				{"displayName":"%s"}
+				""".formatted("x".repeat(41))).andExpect(status().isBadRequest())
+			.andExpect(jsonPath("$.code").value("validation.failed"))
+			.andExpect(jsonPath("$.errors[*].field").value(hasItems("displayName")));
 	}
 
 }

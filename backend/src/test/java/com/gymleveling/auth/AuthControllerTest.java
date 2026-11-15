@@ -11,7 +11,13 @@ import com.gymleveling.MutableClock;
 import com.gymleveling.TestClockConfiguration;
 import com.gymleveling.TestcontainersConfiguration;
 import com.jayway.jsonpath.JsonPath;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -175,6 +181,48 @@ class AuthControllerTest {
 		}
 		login("a@b.com", "password1").andExpect(status().isTooManyRequests())
 			.andExpect(jsonPath("$.code").value("auth.too_many_attempts"));
+	}
+
+	@Test
+	void login_parallelAttempts_capped() throws Exception {
+		register("a@b.com", "password1", "Alice", "en").andExpect(status().isCreated());
+		int n = 10;
+		ExecutorService pool = Executors.newFixedThreadPool(n);
+		CountDownLatch start = new CountDownLatch(1);
+		List<Future<Integer>> results = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			results.add(pool.submit(() -> {
+				start.await();
+				return login("a@b.com", "badpassword").andReturn().getResponse().getStatus();
+			}));
+		}
+		start.countDown();
+		List<Integer> statuses = new ArrayList<>();
+		for (Future<Integer> f : results) {
+			statuses.add(f.get());
+		}
+		pool.shutdown();
+		assertThat(statuses).allMatch(s -> s == 401 || s == 429);
+		assertThat(statuses.stream().filter(s -> s == 401).count()).isLessThanOrEqualTo(5);
+		assertThat(statuses.stream().filter(s -> s == 429).count()).isGreaterThanOrEqualTo(5);
+	}
+
+	@Test
+	void login_locked_hasRetryAfterHeader() throws Exception {
+		for (int i = 0; i < 5; i++) {
+			login("nobody@b.com", "badpassword").andExpect(status().isUnauthorized());
+		}
+		String retryAfter = login("nobody@b.com", "badpassword").andExpect(status().isTooManyRequests())
+			.andReturn().getResponse().getHeader("Retry-After");
+		assertThat(retryAfter).isNotNull();
+		assertThat(Long.parseLong(retryAfter)).isBetween(1L, 900L);
+	}
+
+	@Test
+	void login_emailOver254_returns400() throws Exception {
+		login("a".repeat(250) + "@b.com", "password1").andExpect(status().isBadRequest())
+			.andExpect(jsonPath("$.code").value("validation.failed"))
+			.andExpect(jsonPath("$.errors[*].field").value(hasItems("email")));
 	}
 
 }

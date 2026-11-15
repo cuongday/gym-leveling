@@ -1,6 +1,7 @@
 package com.gymleveling.auth;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -205,6 +206,26 @@ class RefreshTokenTest {
 		pool.shutdown();
 		assertThat(statuses).containsExactlyInAnyOrder(200, 401);
 		refreshOk(winnerToken);
+	}
+
+	@Test
+	void refresh_withExpiredAccessTokenHeader_stillSucceeds() throws Exception {
+		register();
+		String body = mvc.perform(post("/api/v1/auth/login").contentType(MediaType.APPLICATION_JSON)
+			.content("""
+					{"email":"a@b.com","password":"password1"}
+					""")).andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
+		String access = JsonPath.read(body, "$.accessToken");
+		String r1 = JsonPath.read(body, "$.refreshToken");
+		clock.advance(Duration.ofMinutes(16));
+		mvc.perform(post("/api/v1/auth/refresh").header("Authorization", "Bearer " + access)
+			.contentType(MediaType.APPLICATION_JSON)
+			.content("{\"refreshToken\":\"%s\"}".formatted(r1)))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$.accessToken").isNotEmpty());
+		mvc.perform(get("/api/v1/me").header("Authorization", "Bearer " + access))
+			.andExpect(status().isUnauthorized())
+			.andExpect(jsonPath("$.code").value("auth.unauthorized"));
 	}
 
 }
